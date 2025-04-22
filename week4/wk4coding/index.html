@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week4coding</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="./sketch.js"></script>
+
+</head>
+<style>
+
+    @font-face {
+        font-family:HELV_CE;
+        src: url(../wk4/HV.ttf);
+    }
+
+canvas {
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+
+
+    body,html {
+background-color: rgba(250, 235, 215, 0);
+margin: 0;
+padding: 0;
+width: 100vw;
+height: 200vh;
+overflow-x: hidden;
+overflow-y: scroll;
+font-family: HELV_CE;
+z-index: 20;
+
+    }
+
+
+.introtext {
+ position: absolute;
+ align-content: center;
+ top: 11vh;
+ font-size: 30px;
+ width: 90vw;
+ left: 6vw;
+
+
+}
+
+.introtext p{
+    line-height: 1.9;
+    font-weight: 800;
+}
+
+
+
+.portrait {
+position: absolute;
+left: 30vw;
+top: 60vh;
+transition: transform .8s;
+z-index: 25;
+
+}
+
+.portrait video{
+width: 5vw;
+height: auto;
+
+}
+
+
+.portrait:hover {
+    transform: scale(5);
+    z-index: 40;
+}
+
+.heading1 p{
+    z-index: 25;
+    position: absolute;
+    background-color: rgb(0, 26, 255);
+    height: 14px;
+    width: 100px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 600;
+    left: 35vw;
+    top: 72vh;
+}
+
+
+
+.kusama{
+    z-index: 25;
+    position: absolute;
+top: 45vh;
+left: 50vw; 
+transition: transform .8s;
+}
+
+
+.kusama video{
+width: 8vw;
+height: auto;
+}
+
+.kusama:hover{
+    transform: scale(4);
+    z-index: 40;
+}
+
+
+
+.heading2 p{
+    z-index: 25;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    height: 14px;
+    width: 100px;
+    color: rgb(255, 0, 0);
+    font-size: 16px;
+    font-weight: 600;
+    left: 65vw;
+    top: 55vh;
+}
+
+.simple{
+    z-index: 25;
+    position: absolute;
+    top: 45vh;
+    left: 30vw;
+    transition: transform .8s;
+ }
+
+ .simple img {
+    height: 8vh;
+    width: auto;
+ }
+ 
+ .simple:hover{
+    transform: scale(4);
+    z-index: 40;
+}
+
+.heading3 p{ 
+    z-index: 25;
+    position: absolute;
+    background-color: rgb(0, 255, 255);
+    height: 14px;
+    width: 160px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: 600;
+    left: 15vw;
+    top: 55vh;
+}
+
+h1 {
+    position: absolute;
+    align-content: center;
+    text-align: center;
+    transform: rotate(-90deg) scaleX(1.3) scaleY(1.2);
+    font-size: 120px;
+left: 0vw;
+bottom: 2vh;
+z-index: 20;
+
+}
+
+.underheading h2{
+    position: absolute;
+   text-align: left;
+    transform: rotate(-90deg) scaleX(1.3) scaleY(1.2);
+    font-size: 30px;
+left: 8vw;
+bottom: 20vh;
+z-index: 20; 
+font-weight: normal;
+
+}
+
+.creativecoding p{
+    position: absolute;
+    font-size: 50px;
+    font-weight: 800;
+    background: none;
+    left: 5vw;
+    top: -3vh;
+    transform: scaleY(1.2);
+
+
+}
+
+.row1 p{
+    position: absolute;
+    text-align: left;
+    color: black;
+    font-weight: 100;
+    background-color: rgb(255, 255, 255);
+    background-size: contain;
+    font-size: 18px;
+    width: 10vw;
+right: 2vw;
+bottom: 15vh;
+z-index: 20;
+border: 1px solid black; 
+
+}
+
+.captions p{
+    position: absolute;
+    z-index: 20;
+    font-size: 10px;
+    z-index: 22;
+
+}
+
+
+.text1 {
+    color: blue;
+ position: absolute;
+ top: 58vh;
+ left: 40vw;
+ width: 150px;
+ word-wrap: break-word; /* This ensures long words break and wrap onto the next line */
+ text-align: justify;
+
+}
+
+.text1:hover {
+    color: black;
+    font-weight: 700;
+    transform: scale(3);
+    top: 30vh;
+    left: 50vw;
+    z-index: 40;
+
+}
+
+
+.text2 {
+    color: rgb(255, 0, 0);
+ position: absolute;
+ top: 50vh;
+ left: 65vw;
+ width: 200px;
+ word-wrap: break-word; /* This ensures long words break and wrap onto the next line */
+ text-align: justify;
+}
+
+.text2:hover {
+    color: black;
+    font-weight: 700;
+    transform: scale(4);
+    z-index: 40;
+    top: 20vh;
+}
+
+
+.text3 {
+    color: rgb(0, 255, 255);
+ position: absolute;
+ top: 50vh;
+ left: 2vw;
+ width: 300px;
+ word-wrap: break-word; /* This ensures long words break and wrap onto the next line */
+ text-align: justify;
+}
+
+.text3:hover {
+    color: black;
+    font-weight: 700;
+    transform: scale(3);
+     left: 20vw;
+    z-index: 40;
+    top: 30vh;
+
+}
+
+
+
+.bottomimages img{
+    position: absolute;
+width: 300px;
+height: auto;
+}
+
+.bottomimages p{
+    position: absolute;
+    left: 25vw;
+    top: 110vh;
+    font-size: 30px;
+    text-align: left;
+    color: black;
+    font-weight: 700;
+    width: 700px;
+    word-wrap: break-word; /* This ensures long words break and wrap onto the next line */
+    text-align: justify;
+
+}
+
+.pro1 {
+    top: 160vh;
+    left: 30vw;
+}
+
+.pro2{
+    top: 120vh;
+    left: 80vw;
+}
+
+
+.pro3{
+ top: 105vh;
+ left: 5vw;
+}
+
+
+</style>
+<body>
+   
+<div><h1>p5*js</h1></div>
+<div class = "underheading"><h2><em>NewLanguage</em></h2></div>
+ 
+<div class="creativecoding"> <p> Week4(CreativeCoding);</p>
+
+</div>
+
+<div class="introtext">
+<p>Departing from CSS and HTML, p5*js was introduced this week. So far, i have been inspired by the endless visual and interactive opportunity this new language has allowed.</p>
+</div>
+
+<div class="row1" id="row1">    
+<p> 
+    function setup(){
+    createCanvas (800,800);
+    background (255);
+    } 
+<br>
+    function draw(){
+        noStroke();
+        fill(30,80,130);
+        rect (0,0,50,300);
+    }
+</p>
+</div>
+
+
+
+<div class="portrait">
+<video src="../wk4/portraitscreenrecord.mp4" autoplay muted loop></video>
+    </div>
+
+<div class="heading1">
+<p>selfPortrait</p>
+</div>
+
+
+
+<div class = "kusama">
+<video src="../wk4/kusamascreenrecord.mp4" autoplay muted loop></video>
+    </div>
+
+    <div class="heading2">
+        <p>yayoiKusama</p>
+        </div>
+
+
+<div class = "simple">
+    <img src="../wk4/firstgif.gif" alt="First GIF" autoplay muted loop>
+</div>
+
+<div class="heading3">
+    <p>first p5 sketches</p>
+    </div>
+
+
+
+<div class = "captions">
+    <div class="text1">
+        <p>I clearly didn’t go very realistic on the portrait, did I? Still adjusting to p5, I decided to just make it abstract and use basic shapes and colours to create a face—if not mine. I also experimented with animating a line of ellipses to follow the cursor, creating an interactive drawing element. The ability to add interaction into a page that’s more complex than what I was previously able to do is exciting!</p>
+        </div>
+        
+        <div class="text2">
+            <p>As we were encouraged to take inspiration from the Yayoi Kusama exhibition we visited in class, I created a simple flower shape (since we saw so many of them) and randomly generated polka dots on top. The addition of randomness that p5 offers is also very exciting in its ability to foster interaction.</p>
+        </div>
+    <div class="text3">
+        <p> I started by experimenting with basic colour and shape in my first p5 sketches. Transitioning into the visual language of drawing through code was unexpectedly refreshing—especially after finding HTML and CSS styling to be counterintuitive and frustrating. With p5.js, the process felt more intuitive and creative, allowing me to generate personal imagery more naturally, rather than relying on finding and inserting JPEGs.</p>
+    </div>
+</div>
+
+
+<div class="bottomimages">
+
+   
+        <img class = "pro1" src="../wk4/codingprogress1.png" >
+
+
+
+   
+        <img class = "pro2" src="../wk4/codingprogress2.png" >
+
+
+ 
+        <img  class ="pro3" src="../wk4/codingprogress3.png">
+
+
+        <p>
+            These are the progress screenshots from my Week 4 landing page. I initially struggled to use p5 to create a grid that could generate a pattern of cells. After figuring that out, I also had to experiment with how changing the background and adding elements in HTML interacted with the p5 sketch I created. What I found most difficult was how the two canvases—HTML and p5—layered on top of each other, and how to get all the elements to stack correctly.
+        </p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<script>
+    let row1 = document.getElementById('row1');
+    
+    // Define the area for the bottom-right corner (e.g., 25% of the screen width/height)
+    let areaWidth = window.innerWidth * 0.15;
+    let areaHeight = window.innerHeight * 0.25;
+    
+    let cloneCount = 0;
+    let totalClones = 25;
+  
+    function createClone() {
+      if (cloneCount < totalClones) {
+        let clone = row1.cloneNode(true);
+  
+        // Position the element randomly within the bottom-right area
+        clone.style.position = 'absolute';
+        clone.style.top = (Math.random() * areaHeight + window.innerHeight * 0.85) + 'px';  // Y between 75% and 100% of height
+        clone.style.left = (Math.random() * areaWidth + window.innerWidth * 0.85) + 'px';  // X between 75% and 100% of width
+  
+        document.body.appendChild(clone);
+        cloneCount++;
+      }
+    }
+  
+    function animateClones() {
+      if (cloneCount < totalClones) {
+        createClone();
+      }
+  
+      if (cloneCount < totalClones) {
+        setTimeout(() => {
+          requestAnimationFrame(animateClones);
+        }, 300);  // Repeat every 10 frames (~100ms)
+      }
+    }
+  
+    animateClones();
+  </script>
+  
+
+</html>
