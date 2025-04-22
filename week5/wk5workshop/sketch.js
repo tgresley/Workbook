@@ -2,6 +2,7 @@ let FONT;
 let overlayfont;
 let gridData = [];
 let trailLayer;
+let scrollX;
 
 function preload(){
 	FONT = loadFont ('../wk5/HV.ttf')
@@ -42,6 +43,8 @@ function setup() {
 topHeight = windowHeight;
 middleHeight = windowHeight;
 bottomHeight = windowHeight;
+
+scrollX = windowWidth;
 }
 
 function draw() {
@@ -76,7 +79,7 @@ function draw() {
     let face = 'p*5__\n TheFaceAsImage';
     let learn =  'Code__\n LearningThroughDoing';
     let paragraph1 = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ve.`;
-    let paragraph2 = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ve.`;
+    let paragraph2 = `We are slaves to our machines.\n Our camera watches us.\n Our fingers become our mouths.`;
     let paragraph3 = `All text here coded with p5`;
     let columntext = 'textFont(Helvetica);\ntextSize(25);\ntextAlign(LEFT, TOP);\ntextLeading(40);';
     let WORD = '(~_^)';
@@ -180,15 +183,38 @@ function textLineToBuffer(pg, text2, s, x1, y1, x2, y2){
   
     pop();
   }
-  
-  function drawBottomSection (y,h) {
+  function drawBottomSection(y, h) {
     push();
-  translate(0, y);
-  fill(0, 0, 255);
-  rect(0, 0, width, h); // full width, height from parameter
-  pop();
-
+    translate(0, y);
+    fill(0, 0, 255);
+    rect(0, 0, width, h);
+    pop();
+  
+    // Long paragraph text
+    let reflection = `In the week 5 workshop, we explored algorithms and how we interact with them—both in our everyday lives and on the screen. We also discussed the relationship between type and the camera, which I found really interesting. It felt like this workshop was more focused on conversation, so there isn’t much visual output to show. Instead, the discussion inspired the elements you see on this page. Refresh to generate a new grid above.`;
+  
+    // Text setup
+    fill(255);
+    textFont(FONT);
+    textSize(80);
+    textAlign(LEFT, TOP);
+    textLeading(90);
+  
+    let textBoxWidth = width;
+    let paragraphHeight = h; // estimated height for the paragraph
+  
+    // Draw the scrolling paragraph as a block
+    push();
+    translate(scrollX, y + h / 2 - paragraphHeight / 2);
+    text(reflection, 0, 0, textBoxWidth);
+    pop();
+  
+    // Scroll logic
+    scrollX -= 4;
+  
+    // If it's scrolled past its own width, reset
+    if (scrollX < -textBoxWidth) {
+      scrollX = width;
+    }
   }
-
-
-
+  
