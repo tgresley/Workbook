@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>week6coding</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/addons/p5.sound.min.js"></script>
+  <script src="sketch1.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 200vh;
+      overflow-x: hidden;
+      position: relative;
+      font-family: sans-serif;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bottomhalf {
+      position: absolute;
+      top: 100vh;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgb(207, 207, 207);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .bottomhalf p {
+        position: absolute;
+color: #FF10F0;
+font-size: 24px;
+bottom: 30%;
+right: 10%;
+width: 30vw;
+height: auto;
+
+    }
+
+
+
+
+
+
+
+    .bottomhalf img {
+      position: absolute;
+      width: 300px;
+      height: auto;
+      z-index: 11;
+      pointer-events: none;
+      border: solid 2px #FF10F0 ;
+    }
+
+    .progress1 {
+      top: 20%;
+      left: 30%;
+    }
+
+    .progress2 {
+      top: 10%;
+      left: 70%;
+    }
+
+    .progress3 {
+      top: 5%;
+      left: 5%;
+    }
+
+
+    .tophalf {
+    position: relative;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: transparent;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .explanation{
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: black;
+        width: 80vw;
+        height: auto;
+        text-align: justify;
+      
+    }
+
+    .explanation p{
+        font-size: 34px;
+        font-weight: 700;
+
+    }
+
+    .explanation h1{
+        font-size: 40px;
+        font-weight: 700;
+
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+    <div class="tophalf">
+        <div class = "explanation">
+            <h1>AI visualisation</h1>
+            <p>For this activity, I took the live coding done in class and asked OpenAI to make it as crazy as possible. I was interested to see how the AI would re-visualise the code data I gave it and respond to my prompt: "rewrite this code making it insane, adding as many elements as possible." I don’t think it did a very good job, but it challenges the specificity embedded in the collection of data—how was it supposed to know what I (as constructed through the 'data' I collect) meant by 'insane'?</p>
+                </div> 
+
+    </div>
+
+
+  <div class="bottomhalf">
+    <img class="progress1" src="../wk6/progress1.png" alt="Progress 1" />
+    <img class="progress2" src="../wk6/progress2.png" alt="Progress 2" />
+    <img class="progress3" src="../wk6/progress3.png" alt="Progress 3" />
+    <div class = "reflection">
+<p>In creating the landing page for this week's content, I learnt so many new skills. With the help of OpenProcessing, the coding of an interactive data map with connecting nodes and edges was able to sit above a simple sketch of combined shape masking a random image. This code took me hours to get to work, but I think it is reflective of the content that I explored this week. The song I used is one of my childhood favourites and is indicative of the visualisation of data. </p>
+    </div>
+  </div>
+</body>
+</html>
