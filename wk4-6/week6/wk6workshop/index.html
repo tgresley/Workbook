@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week6workshop</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ml5/0.12.2/ml5.min.js"></script>
+    
+    <script language="javascript" type="text/javascript" src="./sketch2.js"></script>
+        <script language="javascript" type="text/javascript" src="./sketch.js"></script>
+  
+</head>
+
+
+
+<style>
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: transparent;
+    pointer-events: none; /* <- this is the key */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+body {
+    position: relative;
+    background-color: rgb(189, 189, 189);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.musicnote {
+    position: absolute;
+    font-size: 300px;
+    transform: scale(2.4, 1.3); 
+    top: 0px;
+    left: 50px
+
+}
+
+
+.musicnote:hover{
+    opacity: 0.3; /* lower value = more transparent */
+    cursor: pointer;
+}
+
+
+.text {
+    position: absolute;
+    display: none;
+    fill: rgb(64, 42, 50);
+    text-align: left;
+    top: 4vh;
+  left: 50vw;
+    width: 46vw;
+    font-size: 30px;
+    margin-top: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 6;
+
+}
+
+
+.text h1 {
+   font-size: 40px ;
+line-height: 10px;
+
+}
+
+</style>
+
+<body>
+
+    <div class = "musicnote" id="musicnote">
+<p>🎵</p>
+    </div>
+
+
+
+    <div class = "text" id="text"> 
+        <h1>Sound as Data</h1>
+        <p>I was sick this week, so I used this workshop to experiment with an interactive sound element. With the addition of the p5*js sound library and the ability to integrate frequency into my sketches, the interactivity at our fingertips (quite literally, on the keyboard) becomes apparent. We can all become musicians if the tools are accessible enough to allow for it—clearly, the simple keyboard we're so familiar with can serve as that tool.
+
+            It was also interesting to think about data visualisation in this context. Sound is data for our ears, but how can we generate a visual input from that data? Interactivity becomes boundless when our senses are so easily manipulated.</p>
+    </div>
+</body>
+
+<script>
+    document.getElementById("musicnote").addEventListener("click", function () {
+      const textDiv = document.getElementById("text");
+      if (textDiv.style.display === "block") {
+        textDiv.style.display = "none";
+      } else {
+        textDiv.style.display = "block";
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+</html>
+
+

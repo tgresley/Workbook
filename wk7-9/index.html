@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week Landing · Museo HTML</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .layer {
+      position: absolute;
+      font-size: 48px;
+      color: rgba(0, 0, 0, 0.12);
+      width: 100%;
+      left: 0;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .layer:nth-child(1) { top: 20px; }
+    .layer:nth-child(2) { top: 60px; font-size: 64px; }
+    .layer:nth-child(3) { top: 100px; }
+    .layer:nth-child(4) { top: 180px; font-size: 32px; }
+    .layer:nth-child(5) { top: 230px; font-size: 56px; }
+
+    .content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .title {
+      font-size: 32px;
+      color: #ddd;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .week-link {
+      font-size: 20px;
+      color: #0066ff;
+      text-decoration: underline;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .info {
+      font-size: 14px;
+      color: #444;
+      margin-top: 20px;
+    }
+
+    .subtle {
+      font-size: 13px;
+      color: #bbb;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    .alert {
+      font-size: 13px;
+      color: #a10032;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Layered background text -->
+    <div class="layer">f** * 01••</div>
+    <div class="layer">**() 01</div>
+    <div class="layer">** * * ()1</div>
+    <div class="layer">:: i01 // *</div>
+    <div class="layer">** · ⧉ / 1</div>
+
+    <!-- Foreground content -->
+    <div class="content">
+      <div class="title">PhysicalComputing</div>
+      <a href="./week7/index.html"><div class="week-link">week 7 (arduino basic)</div></a>
+      <a href="./week8/index.html"><div class="week-link">week 8 (capacitive touch)</div></a>
+      <a href="./week9/index.html"><div class="week-link">week 9 (speculative objects)</div></a>
+
+      <div class="info"> To sense or not to sense ∞</div>
+      <div class="info">tinkercad, arduino ide.</div>
+      <div class="subtle">sensorial substituion</div>
+      <div class="alert"> final module, new code, new process</div>
+    </div>
+  </div>
+
+</body>
+</html>
+

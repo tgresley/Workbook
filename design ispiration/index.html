@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fullscreen Pinterest Board</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      background: #fff;
+    }
+
+    .pinterest-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="pinterest-wrapper">
+    <a data-pin-do="embedBoard"
+       data-pin-board-width="1800"
+       data-pin-scale-height="400"
+       data-pin-scale-width="100"
+       href="https://www.pinterest.com/yeehawbaeby/interactive-media/">
+    </a>
+  </div>
+
+  <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+</body>
+</html>

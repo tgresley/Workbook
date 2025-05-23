@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toggle Interaction</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .one, .two {
+      position: absolute;
+      transition: left 0.6s ease, right 0.6s ease, opacity 0.3s ease;
+      cursor: pointer;
+    }
+
+    .one {
+      z-index: 10;
+      top: 23vh;
+      left: 30vw;
+      height: 70vh;
+      width: auto;
+    }
+
+    .two {
+      z-index: 5;
+      top: 12vh;
+      right: 8vw;
+      height: 40vh;
+      width: auto;
+    }
+
+    .one.active {
+      left: 3vw;
+    }
+
+    .two.active {
+      right: 3vw;
+    }
+
+    .descriptionone,
+    .descriptiontwo {
+      display: none;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+      position: absolute;
+      z-index: 2;
+      opacity: 0;
+    }
+
+    .descriptionone {
+      background-color: rgb(234, 145, 206);
+      top: 23vh;
+      right: 3vw;
+      height: 70vh;
+      width: 40vw;
+   
+    }
+
+    .descriptionone h1{
+        padding: 1em;
+      line-height: 30px;
+     color: white;
+    font-family:  Helvetica;
+    font-size: 30px;
+    font-weight: 500;
+    }
+
+.descriptionone p{
+      padding: 1.3em;
+     color: white;
+    font-family:  Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    }
+
+.videoframe {
+position: relative;
+
+  width: 100%;
+  height: 40%; 
+
+}
+
+    .descriptiontwo {
+      background-color: rgb(187, 187, 187);
+      top: 12vh;
+      left: 3vw;
+      height: 40vh;
+      width: 50vw;
+    }
+
+        .descriptiontwo h1{
+        padding: 1em;
+      line-height: 30px;
+     color: white;
+    font-family:  Helvetica;
+    font-size: 30px;
+    font-weight: 500;
+    }
+
+.descriptiontwo p{
+      padding: 1.3em;
+     color: white;
+    font-family:  Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    width: 40vw;
+    }
+
+    .descriptionone.active,
+    .descriptiontwo.active {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .title {
+      z-index: 20;
+      position: absolute;
+      left: 7vw;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.3s ease;
+    }
+
+    .title p {
+      color: rgb(255, 0, 200);
+      font-family: Helvetica;
+      font-size: 25px;
+    }
+
+    .cornerlabels {
+      z-index: 20;
+      font-size: 120px;
+      color: rgb(255, 0, 200);
+      line-height: 1;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+    }
+
+    #topleft { position: absolute; top: 0; left: 0; padding: 10px; }
+    #topright { position: absolute; top: 0; right: 0; padding: 10px; }
+    #bottomleft { position: absolute; bottom: 0; left: 0; padding: 10px; }
+    #bottomright { position: absolute; bottom: 0; right: 0; padding: 10px; }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="cornerlabels">
+    <div id="topleft">I</div>
+    <div id="topright">N</div>
+    <div id="bottomleft">S</div>
+    <div id="bottomright">P</div>
+  </div>
+
+  <div class="title">
+    <p><b>servo motor projects </b><br><br>
+     <br>
+     each work here uses servo motors <br> and physical computing to express movement. 
+  <br><br>
+  having these components as visible to the viewer <br> aligns with discussions of physical computing precedent,<br>
+    and proves how beautiful having this open display can be</p>
+  </div>
+
+  <img class="one" src="./ReadMyLips_cu_3.jpg" alt="Read My Lips">
+
+  <div class="descriptionone">
+    <h1><i>Read My Lips,</i> Hsin-Chien Huang</h1>
+    <p>Hsin-Chien Huang's 2007 work 'Read My Lips' is a physical computing project that uses Servo motors, DirectSound, Customized animation software and an Antique typewriter with a microswitch and controller to simulate a pair of lips reading what the viewer types into to the typewriter. As an interactive installation, this work is an inspiring example of how computing can simulate humanity, and combine old technology with new to express sensory experiences - reading someones lips. </p>
+
+ <iframe class="videoframe"
+        src="https://player.vimeo.com/video/21879850?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        title="Read My Lips">
+</iframe>
+
+  </div>
+
+  <img class="two" src="./pulse-2.webp" alt="Pulse">
+
+  <div class="descriptiontwo">
+      <h1><i>Pulse,</i>Markus Kison</h1>
+    <p> 'Pulse' is a 2008 arduino/live visualisation artwork that simulates a beating heart in accordance with expression of certain emotions in a live search of blogs being posted online. It is a wonderful example of combining the physical elements/ aesthetic of arduino components (servo motors, jumpwires) with an ephemeral online landscape through digital tools.  </p>
+  </div>
+
+  <script>
+    const one = document.querySelector('.one');
+    const two = document.querySelector('.two');
+    const descOne = document.querySelector('.descriptionone');
+    const descTwo = document.querySelector('.descriptiontwo');
+    const title = document.querySelector('.title');
+
+    function resetAll() {
+      one.classList.remove('active');
+      two.classList.remove('active');
+      descOne.classList.remove('active');
+      descTwo.classList.remove('active');
+      one.classList.remove('hidden');
+      two.classList.remove('hidden');
+      title.classList.remove('hidden');
+    }
+
+    one.addEventListener('click', () => {
+      const isActive = one.classList.contains('active');
+      resetAll();
+      if (!isActive) {
+        one.classList.add('active');
+        descOne.classList.add('active');
+        two.classList.add('hidden');
+        title.classList.add('hidden');
+      }
+    });
+
+    two.addEventListener('click', () => {
+      const isActive = two.classList.contains('active');
+      resetAll();
+      if (!isActive) {
+        two.classList.add('active');
+        descTwo.classList.add('active');
+        one.classList.add('hidden');
+        title.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>

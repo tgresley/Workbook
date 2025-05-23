@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEEK5LANDING</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="./sketch.js"></script>
+
+</head>
+<style>
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+canvas {
+    z-index: 3;  /* Make sure canvas is behind the text */
+    position: absolute;
+    top: 0; /* Position the canvas at the top */
+    left: 0;
+    width: 100%;  /* Full width */
+    height: 100%; /* Full height */
+}
+
+body {
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.starbinary {
+    z-index: 2;
+    position: absolute;
+    top: 270px;
+    left: 10px;
+    font-size: 30px;
+    width: 300px;
+}
+
+.heartbinary {
+    z-index: 2;
+    position: absolute;
+    right: 200px;
+    bottom: 100px;
+    font-size: 40px;
+    width: 400px;
+}
+
+/* Apply monospaced font and preserve white space */
+pre {
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre; /* Preserve spaces, line breaks, and formatting */
+    word-wrap: normal; /* Prevent text from breaking within the word */
+}
+
+</style>
+
+<body>
+
+<div class="starbinary">
+    <pre>
+******** ********
+******** ********
+*******   *******
+*******   ******
+******     ******
+                     
+*               *
+**             **
+***           ***
+****         ****
+*****       *****
+****         ****
+****         ****
+***     *     ***
+***    ***    ***
+**    *****    **
+**  *********  **
+    </pre>
+</div>
+
+<div class="heartbinary">
+    <pre>
+        
+ ?????  ????? 
+??????  ??????
+??????????????
+??????????????
+??????????????
+??????????????
+ ???????????? 
+  ??????????  
+   ????????   
+    ??????    
+     ???? 
+
+    </pre>
+</div>
+
+</body>
+</html>

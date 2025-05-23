@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>activity1</title>
+ <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { overflow: hidden; background-color: #fff; }
+    .wrapper { display: flex; height: 100vh; width: 100vw; }
+    #collage { position: relative; width: 40vw; height: 100vh; }
+    figure { position: absolute; margin: 0; }
+    .collage-img { display: block; object-fit: contain; cursor: pointer; }
+    .right-column { width: 60vw; display: flex; flex-direction: column; height: 100vh; }
+    .title { height: 20vh; display: flex; flex-direction: column; justify-content: center; padding-left: 20px; font-family: Helvetica, sans-serif; color: rgb(13, 13, 226); }
+    .title h1 { font-size: 30px; }
+    #grid { height: 80vh; display: grid; grid-template-columns: repeat(8, 1fr); overflow-y: auto; padding: 20px; }
+    .grid-cell {
+      visibility: hidden;
+      color: blue;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+    }
+    .grid-cell.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    .cornerlabels {
+      z-index: 20;
+      font-size: 120px;
+      color: blue;
+      line-height: 1;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+    }
+    #topleft { position: absolute; top: 0; left: 0; padding: 10px; }
+    #topright { position: absolute; top: 0; right: 0; padding: 10px; }
+    #bottomleft { position: absolute; bottom: 0; left: 0; padding: 10px; }
+    #bottomright { position: absolute; bottom: 0; right: 0; padding: 10px; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div id="collage"></div>
+    <div class="right-column">
+      <div class="title">
+        <h1>WWWHATS IN THE BOX?</h1>
+        <h2>CLICK ON THE COMPONENTS<br>SEE MY DESCRIPTION</h2>
+        <h3>REFRESH FOR MORE</h3>
+      </div>
+      <div id="grid"></div>
+    </div>
+  </div>
+  <div class="cornerlabels">
+    <div id="topleft">A</div>
+    <div id="topright">C</div>
+    <div id="bottomleft">T</div>
+    <div id="bottomright">—1</div>
+  </div>
+  <script>
+    const images = [
+      { src: '../wk7/1_mainboard.png' },
+      { src: '../wk7/2_prototypeexpansion.png' },
+      { src: '../wk7/3_powersupplymodule.png' },
+      { src: '../wk7/4_steppermodule.png' },
+      { src: '../wk7/5_LCD1602Module.jpg' },
+      { src: '../wk7/6_ultrasonicsensor.png' },
+      { src: '../wk7/7_IRmodule.png' },
+      { src: '../wk7/8_remote.png' },
+      { src: '../wk7/9_onenumber.png' },
+      { src: '../wk7/10_fournumebr.png' },
+      { src: '../wk7/11_temperature-humidity-sensor.jpg' },
+      { src: '../wk7/12_5Vrelay.png' },
+      { src: '../wk7/12_usbcord.png' },
+      { src: '../wk7/13_resistors.png' },
+      { src: '../wk7/14_breadboard.png' },
+      { src: '../wk7/15_potentometer.jpg' },
+      { src: '../wk7/17_buzzer.jpg' },
+      { src: '../wk7/18_Joystickmodule.webp' },
+      { src: '../wk7/19_HBridge.jpg' },
+      { src: '../wk7/20_npntransistor.webp' },
+      { src: '../wk7/21_button.jpg' },
+      { src: '../wk7/22_fanblade.png' },
+      { src: '../wk7/23_LED.webp' },
+      { src: '../wk7/24_LEDRGB.webp' },
+      { src: '../wk7/25_photoresistor.webp' },
+      { src: '../wk7/26_thermistor.webp' },
+      { src: '../wk7/27_tiltsensor.jpg' },
+      { src: '../wk7/28_dioderectifier.jpg' },
+      { src: '../wk7/29_battery.png' },
+      { src: '../wk7/30_micro-servo-motor.jpg' },
+      { src: '../wk7/31_dupontwire.jpg' },
+      { src: '../wk7/32_jumperwires.jpg' },
+      { src: '../wk7/33_dcmotor.png' },
+      { src: '../wk7/34_steppermotor.webp' }
+    ];
+
+    const cellContents = [
+      { title: "UNO R3 Controller Board", description: "The main microcontroller that acts as the brain of your electronics project." },
+      { title: "Prototype Expansion Module", description: "Allows rapid circuit prototyping without soldering." },
+      { title: "Power Supply Module", description: "Limits current and protects sensitive components." },
+      { title: "ULN2003 Stepper Motor Driver Module", description: "Controls the stepper motor movements." },
+      { title: "LCD1602 Module", description: "Displays alphanumeric information to the user." },
+      { title: "Ultrasonic Sensor", description: "Measures distance using sound waves." },
+      { title: "IR Receiver Module", description: "Detects infrared signals from remotes." },
+      { title: "Remote Control", description: "Sends infrared signals to interact with devices." },
+      { title: "1 Digit 7-Segment Display", description: "Displays single digit numbers." },
+      { title: "4 Digit 7-Segment Display", description: "Displays multiple digit numbers." },
+      { title: "DHT11 Temperature and Humidity Sensor", description: "Reads ambient temperature and humidity levels." },
+      { title: "5V Relay", description: "Switches high voltage devices from a microcontroller." },
+      { title: "USB Cord", description: "Connects your Arduino to your computer." },
+      { title: "Resistors", description: "Limits current to protect components." },
+      { title: "830 Tie-Points Breadboard", description: "Used for prototyping electronic circuits." },
+      { title: "Potentiometer 10K", description: "Adjustable resistor to control voltage." },
+      { title: "Buzzer", description: "Emits sound for alerts or feedback." },
+      { title: "Joystick Module", description: "Provides analog control input like a gamepad." },
+      { title: "74HC595 AND L293D H Bridge", description: "Drives DC motors forward or reverse." },
+      { title: "NPN Transistor PN2222", description: "Acts as a switch or amplifier in circuits." },
+      { title: "Push Button", description: "Momentary switch used for input." },
+      { title: "Fan Blade", description: "Attaches to motor shafts for airflow." },
+      { title: "LED", description: "Light emitting diode that glows when powered." },
+      { title: "RGB LED", description: "Emits red, green, and blue light." },
+      { title: "Photoresistor (Photocell)", description: "Changes resistance based on light levels." },
+      { title: "Thermistor", description: "Changes resistance with temperature." },
+      { title: "Tilt Ball Switch", description: "Detects angle changes in devices." },
+      { title: "Diode Rectifier", description: "Allows current in one direction only." },
+      { title: "9V Battery with Connector", description: "Provides portable power to your circuit." },
+      { title: "Servo Motor SG90", description: "Rotates to specific angles via PWM." },
+      { title: "Dupont Wire", description: "Used for connecting components on breadboard." },
+      { title: "Jumper Wires", description: "Flexible connections between circuit components." },
+      { title: "3-6V DC Motor", description: "Rotates when voltage is applied." },
+      { title: "Stepper Motor", description: "Moves in defined step increments." }
+    ];
+
+    const grid = document.getElementById('grid');
+    cellContents.forEach((item, index) => {
+      const cell = document.createElement('div');
+      cell.className = 'grid-cell';
+      cell.dataset.index = index;
+
+      const title = document.createElement('h3');
+      title.textContent = item.title;
+
+      const desc = document.createElement('p');
+      desc.textContent = item.description;
+
+      cell.appendChild(title);
+      cell.appendChild(desc);
+      grid.appendChild(cell);
+    });
+
+    const collage = document.getElementById('collage');
+    function createRandomLayout(container, images) {
+      container.innerHTML = '';
+      const usedRects = [];
+      const columnWidth = container.clientWidth;
+      const columnHeight = container.clientHeight;
+
+      images.forEach((item, index) => {
+        const figure = document.createElement('figure');
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.classList.add('collage-img');
+
+        img.addEventListener('click', () => {
+          const gridCell = document.querySelector(`.grid-cell[data-index='${index}']`);
+          if (gridCell) {
+            gridCell.classList.toggle('visible');
+          }
+        });
+
+        figure.appendChild(img);
+
+        let placed = false;
+        let attempts = 200;
+        while (!placed && attempts > 0) {
+          const width = Math.floor(Math.random() * 30) + 100;
+          const height = Math.floor(Math.random() * 100) + 120;
+          const x = Math.floor(Math.random() * (columnWidth - width));
+          const y = Math.floor(Math.random() * (columnHeight - height));
+          const newRect = { x, y, width, height };
+
+          const overlaps = usedRects.some(rect => !(
+            rect.x + rect.width < newRect.x ||
+            rect.x > newRect.x + newRect.width ||
+            rect.y + rect.height < newRect.y ||
+            rect.y > newRect.y + newRect.height
+          ));
+
+          if (!overlaps) {
+            figure.style.left = `${x}px`;
+            figure.style.top = `${y}px`;
+            img.style.width = `${width}px`;
+            img.style.height = `${height}px`;
+            container.appendChild(figure);
+            usedRects.push(newRect);
+            placed = true;
+          }
+          attempts--;
+        }
+      });
+    }
+
+    createRandomLayout(collage, images);
+    window.addEventListener('resize', () => createRandomLayout(collage, images));
+  </script>
+</body>
+</html>

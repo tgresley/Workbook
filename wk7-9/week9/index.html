@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Animated Node Graph</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: Helvetica, sans-serif;
+    }
+
+    .graph {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .node {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      border: 2px solid black;
+      background: white;
+      padding: 12px;
+      font-size: 60px;
+      font-weight: normal;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    .text-node:hover {
+      background: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .node img {
+      width: 60px;
+      height: 60px;
+      margin-right: 12px;
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .weektitle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 240px;
+      font-weight: 500;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="weektitle">9</div>
+
+<div class="graph">
+  <svg id="edges" width="100%" height="100%"></svg>
+
+  <!-- Image nodes -->
+  <div class="node" id="node1"><img src="./wk9/reflection.png" alt="Reflection" /></div>
+  <div class="node" id="node4"><img src="./wk9/p5.png" alt="p5" /></div>
+  <div class="node" id="node5"><img src="./wk9/touch.png" alt="Touch" /></div>
+
+  <!-- Text nodes -->
+  <div class="node text-node" id="node2"><span><a href="./ACTIVITY1/index.html">p5*js and arduino</a></span></div>
+  <div class="node text-node" id="node3"><span><a href="./ACTIVITY2/index.html">Experiments</a></span></div>
+  <div class="node text-node" id="node6"><span><a href="./INSPO/index.html">sensorial objects</a></span></div>
+</div>
+
+<script>
+  const svg = document.getElementById('edges');
+
+  // Matching image/text node ID pairs
+  const pairs = [
+    ['node1', 'node2'],
+    ['node4', 'node3'],
+    ['node5', 'node6']
+  ];
+
+  // Animated node data for both images and text
+  const animatedNodes = {
+    node1: { el: document.getElementById('node1'), top: 30, left: 30, dx: 0.03, dy: 0.02 },
+    node2: { el: document.getElementById('node2'), top: 15, left: 5, dx: 0.02, dy: -0.025 },
+
+    node4: { el: document.getElementById('node4'), top: 20, left: 85, dx: -0.02, dy: 0.015 },
+    node3: { el: document.getElementById('node3'), top: 40, left: 60, dx: 0.015, dy: 0.01 },
+
+    node5: { el: document.getElementById('node5'), top: 65, left: 60, dx: 0.02, dy: -0.015 },
+    node6: { el: document.getElementById('node6'), top: 85, left: 30, dx: -0.015, dy: 0.02 }
+  };
+
+  // Store base position for bounce bounds
+  for (let key in animatedNodes) {
+    animatedNodes[key]._baseTop = animatedNodes[key].top;
+    animatedNodes[key]._baseLeft = animatedNodes[key].left;
+    animatedNodes[key].el.style.top = animatedNodes[key].top + "%";
+    animatedNodes[key].el.style.left = animatedNodes[key].left + "%";
+  }
+
+  function getCenter(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width / 2 + window.scrollX,
+      y: rect.top + rect.height / 2 + window.scrollY
+    };
+  }
+
+  function animate() {
+    for (let key in animatedNodes) {
+      const node = animatedNodes[key];
+      node.top += node.dy;
+      node.left += node.dx;
+
+      if (node.top < node._baseTop - 3 || node.top > node._baseTop + 3) node.dy *= -1;
+      if (node.left < node._baseLeft - 3 || node.left > node._baseLeft + 3) node.dx *= -1;
+
+      node.el.style.top = `${node.top}%`;
+      node.el.style.left = `${node.left}%`;
+    }
+
+    // Redraw edges
+    svg.innerHTML = '';
+    for (const [idA, idB] of pairs) {
+      const a = getCenter(document.getElementById(idA));
+      const b = getCenter(document.getElementById(idB));
+
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", a.x);
+      line.setAttribute("y1", a.y);
+      line.setAttribute("x2", b.x);
+      line.setAttribute("y2", b.y);
+      line.setAttribute("stroke", "#000");
+      line.setAttribute("stroke-width", "2");
+      svg.appendChild(line);
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Reflection Toggle</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .cornerlabels {
+      font-size: 120px;
+      background-color: red;
+      background-size: cover;
+      color: blue;
+      line-height: 1;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      z-index: 20;
+    }
+
+    #topleft {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+    }
+    #topright {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px;
+    }
+    #bottomleft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 10px;
+    }
+    #bottomright {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+    }
+
+    .pagetitle {
+      padding: 10px;
+      position: absolute;
+      top: 0;
+      left: 60%;
+      transform: translateX(-50%);
+      z-index: 20;
+      font-size: 120px;
+      color:blue;
+
+
+      line-height: 1;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .media-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+    
+      margin-top: 20vh;
+      padding: 0 20px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .media-row img,
+    .media-row video {
+      max-height: 60vh;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .video-container {
+      position: relative;
+      display: inline-block;
+      max-height: 60vh;
+      width: auto;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      background: none;
+      border: none;
+      color: rgb(0, 0, 255);
+     
+      text-shadow: 0 0 10px black;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .hover-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .base-img {
+      display: block;
+      max-height: 60vh;
+      object-fit: contain;
+    }
+
+    .hoverimage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: none;
+      z-index: 1;
+    }
+
+    .hover-wrap:hover .hoverimage {
+      display: block;
+    }
+
+    .hoverimage img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .reflection {
+    
+      display: none;
+      position: absolute;
+      top: 15vh;
+      left: 20vw;
+      width: 40vw;
+      height: 70vh;
+      background-color: red;
+      z-index: 100;
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+        font-family: Helvetica;
+          font-size: 20px;
+  line-height: 1.5;
+   text-align: left;
+  word-wrap: break-word;
+    }
+
+    .box {
+        
+      position: absolute;
+      top: 15vh;
+      left: 20vw;
+      width: 40vw;
+      height: 70vh;
+      background-color: red;
+    }
+
+
+.reflection b{
+
+font-size: 28px;
+}
+
+
+
+    .reflectionbutton {
+      z-index: 20;
+      position: absolute;
+      width: 10vw;
+      height: 10vh;
+      top: 47.5vh;
+      left: 27.5vw;
+      background-color: rgb(0, 0, 255);
+      color: rgb(255, 255, 255);
+      font-size: 30px;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 10vh;
+      cursor: pointer;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cornerlabels">
+    <div id="topleft">A</div>
+    <div id="topright">C</div>
+    <div id="bottomleft">T</div>
+    <div id="bottomright">*3</div>
+  </div>
+
+
+
+  <div class="box"></div>
+
+  <div id="reflectionButton" class="reflectionbutton">CLICK HERE</div>
+
+  <div id="reflectionBox" class="reflection">
+    <button id="closeReflection" class="close-button">×</button>
+    <p><b>ULTRASONICSENSOR + BUZZER CIRCUIT</b><br>
+      Moving into arduino.ide, with a new circuit of ultrasonic sensor and active buzzer, the code language was unfamiliar and quite confusing to me. Especially after learning p5*js, another javascript language has become hard for me to grasp. What helped though is that c++ (which arduino.ide is written in) has a similar logic structure of setup and then repeated loop of code to p5; <br>
+  
+      <pre>
+    void setup() {
+    // runs once
+    }
+      
+    void loop() {
+    // runs forever
+    }      </pre>
+  
+      At first, the code didn't work once uploaded, but once double checking any pin connections in the code and in the circuit, and uploading to the specific board, it began to work. This activity made me realise how carefullly you need to check if the code and board match up, and whether previous code isnt uplaoded unto the board. In arduino.ide, second nature is to compile and then uplaod immediately. 
+      <br><br>
+      After this, some groups began changing distance values within the code to adjust how sensitive the sensor was, but we ran out of time.
+    </p>
+  </div>
+
+  <div class="media-row">
+    <div class="hover-wrap">
+      <img class="base-img" src="./Ultrasonicsensor.JPEG" alt="media frame">
+      <div class="hoverimage">
+        <img src="./IMG_8600.JPEG" alt="hovered version">
+      </div>
+    </div>
+
+    <div class="video-container">
+      <video id="myVideo" src="./IMG_7982.MP4" playsinline></video>
+      <button id="playButton" class="play-button">▶</button>
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById("myVideo");
+    const playButton = document.getElementById("playButton");
+
+    playButton.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        playButton.textContent = "❚❚";
+      } else {
+        video.pause();
+        playButton.textContent = "▶";
+      }
+    });
+
+    video.addEventListener("ended", () => {
+      playButton.textContent = "▶";
+    });
+
+    const reflectionButton = document.getElementById("reflectionButton");
+    const reflectionBox = document.getElementById("reflectionBox");
+    const closeReflection = document.getElementById("closeReflection");
+
+    reflectionButton.addEventListener("click", () => {
+      reflectionBox.style.display = "block";
+      reflectionButton.style.display = "none";
+    });
+
+    closeReflection.addEventListener("click", () => {
+      reflectionBox.style.display = "none";
+      reflectionButton.style.display = "block";
+    });
+  </script>
+</body>
+</html>

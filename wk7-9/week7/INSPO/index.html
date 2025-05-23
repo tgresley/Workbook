@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toggle Interaction</title>
+  <style>
+
+  
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .one, .two {
+      position: absolute;
+      transition: left 0.6s ease, right 0.6s ease, opacity 0.3s ease;
+      cursor: pointer;
+    }
+
+    .one {
+      z-index: 10;
+      top: 23vh;
+      left: 30vw;
+      height: 53vh;
+      width: auto;
+    }
+
+    .two {
+      z-index: 5;
+      top: 12vh;
+      right: 8vw;
+      height: 70vh;
+      width: auto;
+    }
+
+    .one.active {
+      left: 3vw;
+    }
+
+    .two.active {
+      right: 3vw;
+    }
+
+    .descriptionone,
+    .descriptiontwo {
+      display: none;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+      position: absolute;
+      z-index: 2;
+      opacity: 0;
+    }
+
+    .descriptionone {
+      background-color: blue;
+      top: 23vh;
+      right: 3vw;
+      height: 53vh;
+      width: 50vw;
+      color: white;
+    
+    }
+
+       .descriptionone h1{
+        padding: 1em;
+      line-height: 30px;
+     color: white;
+    font-family:  Helvetica;
+    font-size: 30px;
+    font-weight: 500;
+    }
+
+.descriptionone p{
+      padding: 1.3em;
+     color: white;
+    font-family:  Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    width: 40vw;
+    }
+
+    .descriptionone img {
+     
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 20vh;
+  width: auto;
+  margin: 3vh; /* Remove default spacing */
+    }
+
+    .descriptiontwo {
+      background-color: red;
+      top: 12vh;
+      left: 3vw;
+      height: 70vh;
+      width: 70vw;
+    }
+
+         .descriptiontwo h1{
+        padding: 1em;
+      line-height: 30px;
+     color: white;
+    font-family:  Helvetica;
+    font-size: 30px;
+    font-weight: 500;
+    }
+
+.descriptiontwo p{
+      padding: 1.3em;
+     color: white;
+    font-family:  Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    width: 40vw;
+    }
+
+    .descriptiontwo iframe {
+      width: 100%;
+      height: 30vh;
+      border: none;
+    }
+
+    .descriptionone.active,
+    .descriptiontwo.active {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .title {
+      z-index: 20;
+      position: absolute;
+      left: 7vw;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.3s ease;
+    }
+
+    .title p {
+      color: blue;
+      font-family: Helvetica;
+      font-size: 25px;
+    }
+
+    .cornerlabels {
+      z-index: 20;
+      font-size: 120px;
+      color: blue;
+      line-height: 1;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+    }
+
+    #topleft { position: absolute; top: 0; left: 0; padding: 10px; }
+    #topright { position: absolute; top: 0; right: 0; padding: 10px; }
+    #bottomleft { position: absolute; bottom: 0; left: 0; padding: 10px; }
+    #bottomright { position: absolute; bottom: 0; right: 0; padding: 10px; }
+
+@media screen and (max-width: 390px) {
+  .one, .two {
+    height: 20vh;
+    width: auto;
+    top: 10vh !important;
+    left: 5vw !important;
+    right: auto !important;
+  }
+
+  .descriptionone,
+  .descriptiontwo {
+    color: red;
+    width: 90vw;
+    height: auto;
+    top: 25vh !important;
+    left: 5vw !important;
+    right: auto !important;
+    padding: 1em;
+    box-sizing: border-box;
+  }
+
+  .descriptionone p,
+  .descriptiontwo p {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .descriptionone h1,
+  .descriptiontwo h1 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .descriptionone img {
+    height: 15vh;
+    margin: 1vh;
+  }
+
+  .descriptiontwo iframe {
+    height: 20vh;
+  }
+
+  .title p {
+    font-size: 10px;
+    padding: 1em;
+  }
+
+  .cornerlabels {
+    font-size: 40px;
+  }
+}
+    
+  </style>
+</head>
+<body>
+
+  <div class="cornerlabels">
+    <div id="topleft">I</div>
+    <div id="topright">N</div>
+    <div id="bottomleft">S</div>
+    <div id="bottomright">P</div>
+  </div>
+
+  <div class="title">
+    <p><b>physical computing projects </b><br><br>
+    each of these takes movement as input <br>
+    and computes it into a visual output <br><br>
+    in so doing, we are encouraged to challenge our perceptions of movement,<br>
+    and be conscious of its visual impact</p>
+  </div>
+
+  <img class="one" src="./REVEALUXION.png" alt="Revealuxion">
+
+  <div class="descriptionone">
+    <h1><i>Revealuxion,</i> Kieun Kim</h1>
+    <p>2015 Student work 'Revealuxion' by Kieun Kim combines brainwaves, LED lights, and finger movements into a wearable head garment that metamorphises, expands, rises according to the physical movement of the users hands and lights up according to their brainwaves in real-time. Where it is a deeply personal, introspective device, the physical performance latent within its form is a key example to me of the way physical computing can be expressed - it challenges my concieved notions of rigidity, cyber-aesthetic that i would previously conceived the medium as. </p>
+    <img src="./Kieun+Kim+-+Revealuxion.jpg" alt="">
+  </div>
+
+  <img class="two" src="./DOTS.jpg" alt="The Dots">
+
+  <div class="descriptiontwo">
+        <h1><i>The Dots,</i> Jack Lee</h1>
+    <p>This 2023 work by Jack lee, 'The Dots' 
+    is a kinetic, arduino project that uses servo motors and sensors to change the transparency of polarised panels based on viewer proximity. Rather than an introspective work, this installation physically reflects the world around it, and changes according to it. This is a beautiful example of the possibility of physical computing and its relevance in reflecting the world around it.   
+  </p>
+   
+    <iframe src="https://player.vimeo.com/video/838294799?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            title="The Dots - Interactive Installation">
+    </iframe>
+  </div>
+
+  <script>
+    const one = document.querySelector('.one');
+    const two = document.querySelector('.two');
+    const descOne = document.querySelector('.descriptionone');
+    const descTwo = document.querySelector('.descriptiontwo');
+    const title = document.querySelector('.title');
+
+    function resetAll() {
+      one.classList.remove('active');
+      two.classList.remove('active');
+      descOne.classList.remove('active');
+      descTwo.classList.remove('active');
+      one.classList.remove('hidden');
+      two.classList.remove('hidden');
+      title.classList.remove('hidden');
+    }
+
+    one.addEventListener('click', () => {
+      const isActive = one.classList.contains('active');
+      resetAll();
+      if (!isActive) {
+        one.classList.add('active');
+        descOne.classList.add('active');
+        two.classList.add('hidden');
+        title.classList.add('hidden');
+      }
+    });
+
+    two.addEventListener('click', () => {
+      const isActive = two.classList.contains('active');
+      resetAll();
+      if (!isActive) {
+        two.classList.add('active');
+        descTwo.classList.add('active');
+        one.classList.add('hidden');
+        title.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>

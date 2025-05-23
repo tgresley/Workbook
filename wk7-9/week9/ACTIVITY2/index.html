@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino + p5.js</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Corner Labels */
+    .cornerlabels {
+      z-index: 20;
+      font-size: 120px;
+      color: rgb(0, 17, 255);
+      line-height: 1;
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    #topleft { position: absolute; top: 0; left: 0; padding: 10px; }
+    #topright { position: absolute; top: 0; right: 0; padding: 10px; }
+    #bottomleft { position: absolute; bottom: 0; left: 0; padding: 10px; }
+    #bottomright { position: absolute; bottom: 0; right: 0; padding: 10px; }
+
+    .pagetitle {
+      position: absolute;
+      top: 0;
+      left: 60%;
+      transform: translateX(-50%);
+      z-index: 20;
+      font-size: 120px;
+      color: rgb(51, 0, 255);
+      line-height: 1;
+      white-space: nowrap;
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 10px;
+    }
+
+    /* Grid layout for first 4 videos */
+    .contentpageone {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+      width: 100vw;
+      height: 200vh;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+      margin: 10px;
+      background-color: black;
+      color: rgb(0, 0, 255);
+      max-width: 50%;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+     .captiontwo {
+      position: absolute;
+      top: 30%;
+      left: 0;
+      padding: 10px;
+         margin: 10px;
+
+      color: rgb(30, 0, 255);
+      max-width: 30%;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    b {
+      font-size: 24px;
+    }
+
+    /* Additional content below */
+    .contentpagetwo {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+    }
+
+    .contentpagetwo .video-wrapper {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Corner Labels -->
+  <div class="cornerlabels">
+    <div id="topleft">A</div>
+    <div id="topright">C</div>
+    <div id="bottomleft">T</div>
+    <div id="bottomright">*2</div>
+  </div>
+
+  <!-- Fading Page Title -->
+  <div class="pagetitle"><i>serialcode</i></div>
+
+  <!-- Grid of 4 videos (flush) -->
+  <div class="contentpageone">
+    <div class="video-wrapper">
+      <video src="./IMG_8697.MP4" autoplay muted playsinline loop></video>
+    <p class="caption"><b>CURVE through light</b><br>
+      <a href="./https://www.arduino.cc/education/visualization-with-arduino-and-processing/">https://www.arduino.cc/education/visualization-with-arduino-and-processing/</a>
+        This bezier curve, changes through a z-plane according to the light recieved. 
+      </p>
+
+    </div>
+    <div class="video-wrapper">
+      <video src="./IMG_8698.MP4" autoplay muted playsinline loop></video>
+
+         <p class="caption"><b>JavaScript Graphic</b><br>
+            <a href="./https://www.arduino.cc/education/visualization-with-arduino-and-processing/">https://www.arduino.cc/education/visualization-with-arduino-and-processing/</a>
+        This serial connection graphic is not p5*js,its just JavaScript, however it is a great example of the combination of mouse interaction and light sensing as two ports of sensoiral interaction/design. 
+      </p>
+     
+    </div>
+    <div class="video-wrapper">
+      <video src="./IMG_8699.MP4" autoplay muted playsinline loop></video>
+      <p class="caption"><b>TWO BUTTONS TO P5</b><br>
+ this was a personal coding experiment, where i coded two buttons to generate two different shapes randomly on the canvas,the code was simple, putting most of the visuals in the hands of p5 randomisation. 
+      </p>
+    </div>
+    <div class="video-wrapper">
+      <video src="./IMG_8700.MP4" autoplay muted playsinline loop></video>
+      <p class="caption"><b>ULTRASONICSENSOR + BUZZER CIRCUIT</b><br>
+      This one was also done myself, and relied heavily on the (dataIn) element we used in the workshop to vary the canvas colour according to the light received by a photoresistor on the arduino circuit. 
+      </p>
+    </div>
+  </div>
+
+  <!-- Videos below -->
+  <div class="contentpagetwo">
+    <div class="video-wrapper">
+      <video src="./lightsensorcircle.mp4" autoplay muted playsinline loop></video>
+      <p class="captiontwo"><b>LIGHT SENSOR CIRCLE</b><br>
+          <a href="./https://www.arduino.cc/education/visualization-with-arduino-and-processing/">https://www.arduino.cc/education/visualization-with-arduino-and-processing/</a>
+        Using light as input, this circuit responds to environmental brightness to change the size of a circle. 
+      </p>
+    </div>
+    <div class="video-wrapper">
+      <video src="./photosensor.mp4" autoplay muted playsinline loop></video>
+      <p class="captiontwo"><b>PHOTOSENSOR TEST</b><br>
+          <a href="./https://www.arduino.cc/education/visualization-with-arduino-and-processing/">https://www.arduino.cc/education/visualization-with-arduino-and-processing/</a>
+        Testing the threshold of light sensors through the analog-to-digital conversion feature on the Arduino board, this setup explores intensity gradients to change a bezier curve. This is as in video above, with me just changing the colours. 
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

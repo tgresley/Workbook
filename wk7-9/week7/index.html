@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fixed Top & Bottom Layout</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: Helvetica, sans-serif;
+      font-size: 60px;
+      color: #000;
+      overflow: hidden; /* prevents scrolling */
+    }
+
+    a {
+  font-family: Helvetica, sans-serif;
+      font-size: 60px;
+      color: #000;
+      text-decoration: none ;
+    }
+
+a:hover {
+
+ color: #ffffff;
+ background-color: blue;
+
+
+}
+
+
+    .top-line, .bottom-line {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 40px;
+      background: white; /* optional: makes them stand out */
+      z-index: 10;
+    }
+
+    .top-line {
+      top: 0;
+      text-align: center;
+    
+    }
+
+    .bottom-line {
+      bottom: 0;
+     
+    }
+
+    img {
+      display: block;
+    }
+
+    /* Custom image sizing */
+    .kit { height: 90px; }
+    .arduino { height: 100px; }
+    .led { height: 70px; }
+    .sensor { height: 120px; }
+    .experiments { height: 100px; }
+    .logo { height: 50px; }
+    .title { height: 60px; }
+
+
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center h1 {
+  font-size: 240px;
+  font-weight: 500;
+  margin: 0;
+}
+    .board {
+      width: 40vw;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed top line -->
+  <div class="top-line">
+    <img src="./wk7/week7.png" class="title" />
+      <span><em>Physical computing</em> </span>
+    <img src="./wk7/wholekit.png" class="kit" />
+    <span><a href="./ACTIVITY1/index.html">Intro to Arduino—what is what?</a></span>
+    <img src="./wk7/logo.jpg" class="logo" />
+  </div>
+
+  <!-- Optional floating center content -->
+  <div class="center">
+    <h1>7</h1>
+  </div>
+
+  <!-- Fixed bottom line -->
+  <div class="bottom-line">
+    <span><a href="./ACTIVITY2/index.html">First circuits</a></span>
+    <img src="./wk7/led.jpg" class="led" />
+    <span><a href="./ACTIVITY3/index.html">arduino.ide</a></span>
+     <img src="./wk7/ultrasonicsensor.png" class="sensor" />
+    <span><a href="./ACTIVITY4/index.html">experiments</a></span>
+    <img src="./wk7/experiments.jpg" class="experiments" />
+    <span><a href="./INSPO/index.html">precedent</a></span>
+  </div>
+
+</body>
+</html>

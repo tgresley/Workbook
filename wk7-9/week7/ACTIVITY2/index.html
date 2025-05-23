@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrolling Canvases with Fixed Corners</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Fixed corner labels */
+    .cornerlabels {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      font-size: 120px;
+      color: blue;
+      line-height: 1;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    #topleft { position: fixed; top: 0; left: 0; padding: 10px; }
+    #topright { position: fixed; top: 0; right: 0; padding: 10px; }
+    #bottomleft { position: fixed; bottom: 0; left: 0; padding: 10px; }
+    #bottomright { position: fixed; bottom: 0; right: 0; padding: 10px; }
+
+    .pagetitle {
+     
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 60%;
+  transform: translateX(-50%);
+  z-index: 20;
+  font-size: 120px;
+   font-style: italic;
+   font-weight: 200;
+ color: rgb(0, 0, 150);
+  line-height: 1;
+  white-space: nowrap;
+  font-family:  Helvetica;
+  text-transform: uppercase;
+}
+    /* Section styling (like canvases) */
+    .section {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      overflow: hidden;
+    }
+
+.video-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Aligns text to top */
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  background: white;
+  overflow: hidden;
+}
+
+.videotextbox {
+  margin-top: 9vh;
+  font-family: Helvetica;
+  width: 30vw;
+  max-width: 400px;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgb(0, 0, 255);
+  text-align: right;
+  word-wrap: break-word;
+}
+
+.videotextbox b{
+font-size: 28px;
+}
+
+
+.videowrapper {
+  display: flex;
+  align-items: center; /* This centers the video vertically within its own box */
+  height: 100%;
+}
+
+.videowrapper video {
+  margin-left: 20px;
+  width: auto;
+  height: 75vh;
+  object-fit: contain;
+  display: block;
+}
+
+  
+
+
+    /* Second canvas — side-by-side images */
+    .image-section {
+      flex-direction: row;
+      background-color: white;
+    }
+
+    .image-section img {
+      width: 30vw;
+      height: 60vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rowonetextbox {
+  font-family: Helvetica;
+    margin-top: 32vh;
+  width: 40vw;
+  padding: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgb(0, 0, 255);
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.rowonetextbox b{
+
+font-size: 28px;
+}
+
+
+    .third {
+      padding: 0;
+      margin: 0;
+  position: absolute;
+  top: 160vh;
+  right: 0;
+  width: 40.5vw;
+  height: auto;
+
+}
+
+.third img {
+    overflow: hidden;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+  .videotwo-section {
+    position: relative;
+  display: flex;
+left: 20vw;
+  align-items: center;        /* Vertically center it */
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+}
+
+.videotwo-section video {
+  height: 100vh;             /* Full screen height */
+  width: auto;               /* Width adjusts based on aspect ratio */
+  object-fit: contain;       /* Show the whole video without cropping */
+  display: block;
+}
+
+
+    .sectiontwotextbox {
+  font-family: Helvetica;
+    margin-top: 32vh;
+  width: 30vw;
+  padding: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgb(0, 0, 255);
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.sectiontwotextbox b{
+
+font-size: 28px;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Fixed corner letters -->
+  <div class="cornerlabels">
+    <div id="topleft">A</div>
+    <div id="topright">C</div>
+    <div id="bottomleft">T</div>
+    <div id="bottomright">—2</div>
+  </div>
+
+  <div class="pagetitle">
+ NO-CODE CIRCUITS
+  </div>
+
+
+  
+  <!-- Canvas 1: Video -->
+  <section class="section video-section">
+     <div class="videotextbox">
+    <p> <b>PUSHBUTTON LED</b> <br> Our first exploration into arduino began in completing simple circuits, with the power source being only a battery - no code. Even this was new to me, so i was in for a lot of learning. Our first circuit was a simple push button, turning on a LED. I was surprised how finnicky making the circuits were, and how attentive you have to be to positive and negative currents. The LED bulb wont work unless the long end is attached to positive current, for example. </p>
+  </div>
+<div class="videowrapper">
+    <video src="../ACTIVITY2/assetts/buttonpress.MP4" autoplay muted loop playsinline></video>
+  </div>
+  </section>
+
+  <!-- Canvas 2: Two Images Side by Side -->
+  <section class="section image-section">
+    <img src="./assetts/IMG_7976.JPEG" alt="Image 1">
+    <img src="./assetts/IMG_7977.JPEG" alt="Image 2">
+     <div class="rowonetextbox">
+    <p> <b>2PUSHBUTTON_2LED</b> <br> Quite quickly, Rebekah and I got the hang of it and began figuring out our own circuits, based on what we had already done. These images show our experiment with two push buttons and two LEDS, on the left we just used one buytton to active two LEDs, and below we used two buttons each turning on their corresponding LED's. After being concerned i wouldn't figure it out, our teamwork was very useful to build my confidence </p>
+  </div>
+     <div class=" third">
+    <img src="./assetts/wkpicture.jpg" alt="Image 3">
+    </div>
+ </section>
+
+
+<section>
+ 
+ </section>
+
+ <section class="section videotwo-section">
+    <video src="../ACTIVITY2/assetts/potentiometer.MP4" autoplay muted loop playsinline></video>
+      <div class="sectiontwotextbox">
+    <p> <b>POTENTIOMETER LED</b> <br> Our final no-code circuit was an extension on how we could manipulate an LED. Using a potentiometer (a dial), we were able to succesfully create a circuit that adjusted the brightness of the LED. These circuits gave me confidence in my ability to create circuits that worked, which was an incredibly useful starting point for the rest of the physucal computing module. Any arduino.ide code wont work if the circuit is wrongly made.</p>
+  </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>week4workshop</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="./sketch.js"></script>
+  
+  <style>
+    @font-face {
+      font-family: Playbill;
+      src: url(../wk4/Playbill.ttf);
+    }
+
+    body, html {
+      width: 100vw;
+      height: 200vh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      font-family: Playbill;
+      background: rgb(255, 0, 0);
+    }
+
+    canvas {
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 50;
+      pointer-events: none; /* Allow p5.js canvas underneath */
+      filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+    }
+
+    .icons figure {
+      position: absolute;
+      margin: 0;
+      text-align: center;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      pointer-events: auto; /* Allow dragging */
+      cursor: grab;
+    }
+
+    .icons figure img {
+      width: 100px;
+      height: auto;
+      display: block;
+      border: solid 2px white;
+    }
+
+    .icons figure figcaption {
+      margin-top: 8px;
+      font-size: 14px;
+      filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+    }
+
+    /* Specific positions for each figure */
+    .paintingtwo { top: 400px; left: 800px; }
+    .paintingthree { top: 800px; left: 400px; }
+    .paintingfour { top: 666px; left: 233px; }
+    .paintingfive { top: 500px; left: 900px; }
+    .paintingsix { top: 80px; left: 1000px; }
+    .paintingseven { top: 700px; left: 1300px; }
+
+    .box {
+      display: none;
+      z-index: 40;
+      background-color: rgba(255, 0, 0, 0.8); /* Blue with 50% opacity */
+      position: absolute; 
+      left: 350px;
+      top: 105px;
+      margin: 0;
+      padding: 0;
+      margin-top: 0;
+      width: 550px;
+      height: 450px;
+    }
+
+    .details pre {
+      position: relative;
+      line-height: 30px;
+      z-index: 50;
+      margin-top: 0;
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica, sans-serif;
+      color: rgb(255, 0, 0);
+      word-wrap: break-word; /* This ensures long words break and wrap onto the next line */
+      font-size: 30px;
+      font-weight: 400;
+      transform: scaleY(1.5);  /* Change 1.5 to the scale factor you want */
+      transform-origin: top;
+    }
+
+    .hidden {
+      position: absolute; /* Ensure it's positioned within the flow of the page */
+      top: 0; /* Adjust as needed */
+      left: 0; /* Adjust as needed */
+      margin: 0;
+      padding: 0;
+      margin-top: 0;
+    }
+
+    .initial {
+      display: block; /* Initially visible */
+      position: absolute; 
+      left: 350px;
+      top: 60px;
+      margin: 0;
+      padding: 0;
+      margin-top: 0;
+    }
+
+    .painting2jpg, .painting3jpg, .painting4jpg, .painting5jpg, .painting6jpg, .painting7jpg {
+      display: none; /* Hide captions initially */
+      position: absolute; /* Keep the captions in the same position as the initial text */
+  top: 60px;  /* Match the initial position */
+  left: 350px;  /* Match the initial position */
+     margin: 0;
+      padding: 0;
+      margin-top: 0;
+    }
+
+
+
+
+    .selfieroom {
+height: 90vh;
+width: auto;
+position: absolute;
+top: 105vh;
+left: 30vw;
+z-index: 50;
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="icons">
+    <figure class="paintingtwo" id="painting2">
+      <img src="../wk4/painting2.jpg">
+      <figcaption>painting_2.jpg</figcaption>
+    </figure>
+    
+    <figure class="paintingthree" id="painting3">
+      <img src="../wk4/painting3.jpg">
+      <figcaption>painting_3.jpg</figcaption>
+    </figure>
+    
+    <figure class="paintingfour" id="painting4">
+      <img src="../wk4/painting4.jpg">
+      <figcaption>painting_4.jpg</figcaption>
+    </figure>
+    
+    <figure class="paintingfive" id="painting5">
+      <img src="../wk4/pumpkin1.jpg">
+      <figcaption>pumpkin_1.jpg</figcaption>
+    </figure>
+    
+    <figure class="paintingsix" id="painting6">
+      <img src="../wk4/sketchbook.jpg">
+      <figcaption>sketch_1.jpg</figcaption>
+    </figure>
+    
+    <figure class="paintingseven" id="painting7">
+      <img src="../wk4/yayoiposter.jpg">
+      <figcaption>Poster_1.jpg</figcaption>
+    </figure>
+  </div>
+
+
+
+
+  <div class="details" id="details">
+    <div class="box"></div>
+    <div class="initial">
+  <pre><b>
+Yayoi                           Kusama <em>
+Walking   Piece             c. 1966</em>
+performance     documented 
+with          24 colour       slides 
+Photographer :  Eikoh Hosoe 
+Collection        of the      artist
+©       YAYOI               KUSAMA
+© Eikoh     Hosoe /  Courtesy
+of               Taka Ishii Gallery 
+Photography                   / Film
+      
+        </b>
+      </pre>
+    </div>
+
+    <div class="hidden" id="hidden">
+  <div class="painting2jpg" id="painting2jpg">
+   <pre> <b>
+                    Yayoi Kusama
+<em>Revived Soul</em> 1995
+synthetic polymer paint on canvas
+194.0        ×          391.5 cm
+Hiroshima      City Museum 
+            of Contemporary Art
+© YAYOI KUSAMA
+          </b>
+        </pre></div>
+
+      <div class="painting3jpg" id="painting3jpg">
+        <pre> <b>
+Yayoi           Kusama
+<em>Every Day I Pray for Love </em>2023
+synthetic polymer     paint 
+and marker      pen on canvas
+60.6 × 50.0 cm
+Collection of the            artist
+© YAYOI KUSAMA
+          </b>
+        </pre></div>
+  
+
+      <div class="painting4jpg" id="painting4jpg">
+         <pre> <b>
+          Yayoi             Kusama
+<em> Every Day I Pray for Love</em>2021
+synthetic polymer paint       and 
+marker pen                on canvas
+100.0 ×                   100.0 cm
+          Collection of the artist
+©                 YAYOI KUSAMA
+          </b>
+        </pre></div>
+
+      <div class="painting5jpg" id="painting5jpg">
+        <pre> <b>
+        Yayoi    Kusama
+<em>Pumpkin             </em> 2024
+fibre-reinforced            plastic,
+urethane paint    ,       stainless steel
+179.5 × 213.0             × 32.8 cm
+Collection of             the artist
+©         YAYOI  KUSAMA
+</b>
+</pre></div>
+
+
+      <div class="painting6jpg" id="painting6jpg">
+        <pre> <b>
+Yayoi Kusama
+<em>Untitled (Flower Sketches)</em>c. 1945
+pencil and ink on paper (sketchbook)
+21.5 × 30.0 cm (open)
+21.5 × 15.0 × 0.7 cm (closed)
+Collection of the artist
+        </b>
+      </pre></div>
+
+      <div class="painting7jpg" id="painting7jpg">
+        <pre> <b>
+
+Poster for          Yayoi Kusama's
+<em>Body Festival</em> happening, 
+Chrysler Art Museum, Massachusetts
+          September            1967
+Collection of the artist
+©         YAYOI       KUSAMA
+          </b>
+        </pre></div>    </div>
+  </div>
+
+
+<div>
+
+<img  class = 'selfieroom' src="../wk4/selfieroom.jpg" >
+
+
+</div>
+
+
+  <script>
+    window.onload = function() {
+      // Drag functionality
+      const figures = document.querySelectorAll('.icons figure');
+      figures.forEach(figure => {
+        figure.onmousedown = function(e) {
+          figure.style.cursor = 'grabbing';
+
+          let shiftX = e.clientX - figure.getBoundingClientRect().left;
+          let shiftY = e.clientY - figure.getBoundingClientRect().top;
+
+          function moveAt(pageX, pageY) {
+            figure.style.left = pageX - shiftX + 'px';
+            figure.style.top = pageY - shiftY + 'px';
+          }
+
+          function onMouseMove(e) {
+            moveAt(e.pageX, e.pageY);
+          }
+
+          document.addEventListener('mousemove', onMouseMove);
+
+          figure.onmouseup = function() {
+            document.removeEventListener('mousemove', onMouseMove);
+            figure.onmouseup = null;
+            figure.style.cursor = 'grab';
+          };
+        };
+
+        figure.ondragstart = function() {
+          return false;
+        };
+      });
+
+      // Hover functionality for showing and hiding initial text
+      const initial = document.querySelector('.initial'); // Select the initial content
+
+      figures.forEach(figure => {
+        // When mouse enters a figure (hover over image)
+        figure.addEventListener('mouseenter', function() {
+          initial.style.display = 'none'; // Hide initial text when hovering over the image
+
+          const figureId = figure.id; // Get the figure id (e.g., painting2)
+          const caption = document.getElementById(figureId + 'jpg'); // Corresponding caption
+          caption.style.display = 'block'; // Show the corresponding caption
+        });
+
+        // When mouse leaves the figure
+        figure.addEventListener('mouseleave', function() {
+          initial.style.display = 'block'; // Show the initial content again
+
+          const figureId = figure.id; // Get the figure id (e.g., painting2)
+          const caption = document.getElementById(figureId + 'jpg'); // Corresponding caption
+          caption.style.display = 'none'; // Hide the corresponding caption
+        });
+      });
+    };
+  </script>
+
+</body>
+</html>

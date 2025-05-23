@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week1Workshop</title>
+
+    <style>
+
+@font-face {
+    font-family: "Love";
+    src: url(../font/Love.ttf);
+}
+
+html {
+    cursor:url("../wk1/pencursorpng.png"), auto;
+}
+
+body {
+    cursor:url("../wk1/pencursorpng.png"), auto;
+    background-image: url(../wk1/journalpage.jpg);
+background-size: 80vh;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+margin: 0;
+padding: 0;
+overflow: hidden;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.titles H1 {
+    position: fixed;
+   left: 5vw;
+}
+
+.titles H2 {
+    position: fixed;
+    right: 5vw;
+    bottom: 0vh;
+}
+
+.container {
+    z-index: 500;
+}
+
+
+.questionmarksticker img{
+    height: 220px;
+    width: auto;
+    position: absolute;
+    top: 15vh;
+    left: 51vw;
+
+}
+
+
+.questionmarksticker:hover{
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.218);
+}
+
+.introduction {
+position: absolute;
+display: none;
+top: 8vh;
+left: 5vw;
+height: 30vh;
+width: 25vw;
+font-size: 14px;
+line-height: 2;
+
+}
+
+
+.exclamationsticker img {
+    height: 120px;
+    width: auto;
+    position: absolute;
+    top: 54vh;
+    left: 36vw;
+
+}
+
+
+.exclamationsticker:hover{
+cursor: pointer;
+}
+.gesturenotes {
+    position: absolute;
+    display: none;
+bottom: 0vh;
+right: 5vw;
+height: 30vh;
+width: 25vw;
+font-size: 14px;
+line-height: 2;
+
+}
+
+.arrow p{
+    position: absolute;
+    top: 25vh;
+    left:37vw;
+    font-family: "Love";
+    color: red;
+    font-size: 24px;
+
+}
+.arrow img{
+    position: absolute;
+    height: 100px;
+    width: auto;
+    top: 30vh;
+    left: 37vw;
+}
+
+
+
+
+
+.flowersticker img{
+    height: 140px;
+    width: auto;
+    position: absolute;
+    top: 30vh;
+    left: 42vw;
+}
+
+.notebooktitle {
+    display: none;
+    font-family: "Love";
+    position: absolute;
+    font-size: 26px;
+    top: 9vh;
+    left: 37vw;
+}
+
+.clownsticker img{
+    height: 120px;
+    width: auto;
+    position: absolute;
+    top: 45vh;
+    left: 50vw;
+}
+
+.starsticker:hover {
+    cursor: pointer;
+    background-color: aquamarine;
+}
+
+
+.starsticker img{
+    height: 150px;
+    width: auto;
+    position: absolute;
+    bottom: 20vh;
+    left: 38vw;
+}
+
+.gesturecoffee {
+    display: none;
+    background-color:rgb(239, 239, 239);;
+    border: 2px solid black;
+    height: 60vh;
+    width: 30vw;
+    position: fixed;
+    left: 5vw;
+    bottom: 5vh;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Add drop shadow */
+}
+
+.gesturecoffee img{
+    position: absolute;
+    left: 10px;
+    top: 60px;
+    height: 50vh;
+    width: auto;
+}
+
+.gesturecoffee p{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    margin-bottom: 10px;
+}
+
+.rainbowsticker img{
+    height: 200px;
+    width: auto;
+    position: absolute;
+    bottom: 10vh;
+    left: 53vw;
+}
+
+.rainbowsticker:hover{
+    cursor: pointer;
+    background-color: aqua;
+}
+
+
+.htmlcode {
+    display: none;
+    background-color: rgb(239, 239, 239);
+    border: 2px solid black;
+    height: 70vh;
+    width: 30vw;
+    position: fixed;
+    right: 5vw;
+    top: 5vh;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Add drop shadow */
+}
+
+.htmlcode img{
+    height: 60vh;
+    width: auto;
+    position: absolute;
+    left: 10px;
+    top: 60px;
+}
+
+.htmlcode p{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+ 
+<div class="titles">
+    <div><H1>Week1_What is this?</H1></div>
+
+    <div><H2>...idk</H2></div>
+</div>
+
+
+    <div class="questionmarksticker" id="questionmarksticker"> <img src="../wk1/questionmarksticker.png" >
+    </div>
+
+
+    <div class="introduction" id="introduction">
+        <b><h>'INTERACTIVITY'</h></b><br><p>In thinking about art and gesture, in an interactive framework, we started to question what makes something interactive and the values that holds. We started thinking about what gestures or interactions we have daily without even noticing, and how we interact with technology to live our lives - this was more than you are conscious of. We also started learning about index.html. We played a tag game in a group trying to create the basic layout for a website. Click on the rainbow to see my groups attempt. I dont think we quite got it right. </p>
+    </div>
+
+
+
+
+<div class="exclamationsticker" id="exclamationsticker"> <img src="../wk1/excalamationmarksticker.png" >
+    </div>
+
+    <div class="gesturenotes" id="gesturenotes">
+        <b><h>'GESTURE'</h></b><br><p>In the Workshop, we got into groups and both developed a new machine/human interactivity. We chose a gesture based coffee machine, in which a person had to do a certain physical movement to get the machine to make a coffee.</p>
+    </div>
+
+    
+<div class="arrow">
+    <p>here!</p>
+    <img src="../wk1/arrow.png">
+</div>
+
+<div class="flowersticker" id="flowersticker">
+    <img src="../wk1/flowersticker.png" alt="">
+</div>
+
+<div class="notebooktitle" id="notebooktitle">
+<b><p>INTERACTIVITY</p></b>
+</div>
+
+
+
+<div class="clownsticker" id="clownsticker">
+   <a href="https://www.lozano-hemmer.com/please_empty_your_pockets.php"><img src="../wk1/clownsticker.png"></a> 
+</div>
+
+
+<div class="starsticker" id="starsticker">
+    <img src="../wk1/starsticker.png" alt="">
+</div>
+
+<div class="gesturecoffee" id="gesturecoffee">
+    <b>        <p>CREATIVEGESTURE_GROUP WORKSHOP</p>  </b>
+  <img class="gif" src="../wk1/gesturegif.gif" >
+</div>
+
+<div class="rainbowsticker" id="rainbowsticker">
+        <img src="../wk1/rainbowsticker.png">
+    </div>
+
+<div class="htmlcode" id="htmlcode">
+    <b>        <p>HTML__TAG!</p>  </b>
+        <img src="../wk1/htmlworkshop.png">
+</div>
+
+
+
+</div>
+
+<script>
+
+//popupimages/windows/gifs
+document.getElementById("questionmarksticker").addEventListener("click", function() {
+        var image = document.getElementById("introduction");
+        if (image.style.display === "none") {
+            image.style.display = "block"; 
+        } else {
+            image.style.display = "none"; 
+        }
+    });
+
+
+document.getElementById("rainbowsticker").addEventListener("click", function() {
+        var image = document.getElementById("htmlcode");
+        if (image.style.display === "none") {
+            image.style.display = "block"; 
+        } else {
+            image.style.display = "none"; 
+        }
+    });
+
+    document.getElementById("starsticker").addEventListener("click", function() {
+        var image = document.getElementById("gesturecoffee");
+        if (image.style.display === "none") {
+            image.style.display = "block"; 
+        } else {
+            image.style.display = "none"; 
+        }
+    });
+
+    document.getElementById("flowersticker").addEventListener("click", function() {
+        var image = document.getElementById("notebooktitle");
+        if (image.style.display === "none") {
+            image.style.display = "block"; 
+        } else {
+            image.style.display = "none"; 
+        }
+    });
+
+    document.getElementById("exclamationsticker").addEventListener("click", function() {
+        var image = document.getElementById("gesturenotes");
+        if (image.style.display === "none") {
+            image.style.display = "block"; 
+        } else {
+            image.style.display = "none"; 
+        }
+    });
+</script>
+
+
+
+
+</body>
+</html>

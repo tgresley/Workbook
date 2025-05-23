@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 300px;
+        align-items:center;
+        justify-content: left;
+        min-height: 100vh;
+        background-color: rgb(255, 255, 255);
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+    }
+    
+
+    p {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        color: white; 
+    }
+
+
+    .columnone {
+        position: absolute;
+        display: table-column;
+        margin-left: 200px;
+        gap: 5px;
+        width: 400px;
+    }
+
+    .columntwo {
+        position: absolute;
+        align-items: center;
+        display: table-column;
+        margin-left: 605px;
+        gap: 5px;
+        width: 300px;
+    }
+
+    .columntwo p { 
+    font-size: 18px;
+    height: 14px;
+    }
+
+  
+    .box {       
+        height: 15px;
+        position: relative;
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        color: white;
+        font-size: 8px;
+        text-align: left; 
+     }
+
+    .bottom-right {
+        background-color: rgba(255, 255, 255, 1);
+        display: flex;
+        height: 9px;
+        color: black;
+        position: absolute;
+        text-align: right;
+        bottom: 0px;
+        right: 0px;
+        font-size: 10px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: rgb(0, 34, 255);
+    }
+
+    .sound {
+        display: flex;
+        position: absolute;
+        top: 5px;
+        right: -2px;
+        height: 20px;
+     }
+
+
+    .row11 { 
+        background-color: rgb(183, 27, 105);
+        height:80px;
+    }
+
+    .row11 p{
+        font-size: 12px;
+        height: 10px;
+    }
+
+.row11:hover{
+background-color: darkslateblue;
+}
+
+    .row12 {
+        background-color: rgb(159, 199, 40);
+        height: 40px;
+    }
+
+
+    .row12:hover {
+        cursor: pointer;
+        background-color: darkorchid;
+    }
+
+    .row13 {
+        background-color: orange;
+    }
+
+    .row13:hover {
+        cursor: pointer;
+        background-color: aqua;
+
+    }
+
+
+    .dpgraphgif {
+        display: none;
+    z-index: 999;
+    position: absolute;
+    top: 250px;
+    left: 800px;
+    margin: 0;
+    padding: 0;
+}
+
+    .dpgraphgif img{
+        position: absolute;
+        margin: 0;
+        padding: 0;
+
+
+    }
+
+.dpgraphgif img:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+.dpgraphgif img:nth-child(2) {
+    top: 40px; 
+    left: 40px;
+}
+
+.dpgraphgif img:nth-child(3) {
+    top: 80px; 
+    left: 80px;
+}
+
+    .row14 { 
+        background-color: yellow;
+        margin-bottom: 8px;
+    }
+
+    .row15 { 
+        background-color: lightblue; 
+        height: 10px;
+        margin-top: 8px;
+        margin-bottom: 3px;
+    }
+
+.row15:hover {
+cursor: pointer;
+background-color: lime;
+
+}
+    .row15b {
+        height: 80px
+    }
+
+    .row15b img {
+        visibility: hidden;
+        width: 400px;
+        transition: 30s;
+
+    }
+
+    .row15b:hover img{
+        transition-duration: 1s;
+        visibility: visible;
+    }
+
+
+
+
+    .row16 { 
+        background-color: brown; 
+        height: 119px; 
+        margin-top: 8px;     
+    }
+
+    .row16:hover {
+        background-color: #0d00ff;
+        cursor: pointer;
+    }
+
+    .plane {
+        display: none;
+       z-index: 999;
+    }
+
+    .plane img{
+        z-index: 999;
+        position: absolute;
+        height: 119px;
+        top: -119px;
+        animation: planezoom  4s linear infinite;
+    }
+
+    @keyframes planezoom{
+    from {
+      left: -120px;
+    }
+    to {
+      left: 100vw;
+    }
+}
+
+
+    .row17 { 
+        background-color: red; 
+        height: 25px;
+        margin-bottom: 5px;
+    }
+
+    .row17 p{
+        font-size: 10px;
+        height: 12px;
+    }
+
+.row17:hover{
+cursor: pointer;
+background-color:slategrey;
+}
+
+.facewindow {
+    display: none;
+    position: absolute;
+    top: 50vh;
+    right: -40vw;
+}
+
+.face {
+    cursor: grab;
+    z-index: 999;
+    background-color: #e0e0e0; 
+    width: 220px;
+    height: 170px;
+    display: block;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid #000000; 
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.face .title-bar {
+    background-color: #0078d4;
+    width: 210px;
+    color: rgb(0, 0, 0);
+    font-size: 8px;
+    padding: 5px;
+    text-align: left;
+
+}
+
+.face  .close-button {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    color: white;
+    font-size: 6px;
+    text-align: center;
+    line-height: 10px;
+    cursor: pointer;
+}
+
+.face img {
+    display: block;
+    align-self: center;
+    width: 200px;
+    height: auto;
+    margin-left: 10px;
+    margin-top: 20px; 
+}
+
+
+    .row17b {
+        height: 30px;
+        background: linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
+        --dot-bg: rgb(110, 110, 110);
+  --dot-color: rgb(0, 255, 0);
+  --dot-size: 2px;
+  --dot-space: 5px;
+align-content: center;
+padding: 0;
+margin-bottom: 3px;
+    }
+
+
+    .row18 {
+         background-color: rgb(72, 180, 212); 
+         height: 200px;
+         margin-bottom: 8px;
+    }
+
+    .row18 p{
+        font-size: 25px;    
+        height: 18px;
+    }
+
+
+    .row18:hover {
+        background-color: crimson;
+cursor: pointer;
+    }
+
+.workbookpng {
+display: none;
+position: fixed; 
+top: 60vh;
+left: 5vw;
+    z-index: 999;
+}
+
+
+.workbookpng img {
+    width: 200px;
+    height: auto;
+
+}
+
+    .row19 { 
+        background-color: pink; 
+        height: 40px; 
+        margin-top: 8px; 
+    }
+
+    .row19:hover{
+        background: linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
+        --dot-bg: pink;
+  --dot-color: rgb(255, 0, 132);
+  --dot-size: 4px;
+  --dot-space: 12px;
+  cursor: pointer;
+    }
+
+    .spiral{
+        display: none;
+        z-index: 999;
+        position: fixed;
+        top: 10vh;
+        right: 5vw;
+    }
+
+    .spiral img{
+        height: 200px;
+    }
+
+
+
+    .row110 {
+        background-color: grey;
+        height: 15px;
+    }
+
+   .row110:hover{
+    cursor: pointer;
+    background-color: #0d00ff;
+   }
+
+    .row111 {
+        background-color: blanchedalmond;
+        height: 25px;
+    }
+
+.row21 {
+    background-color: blue;
+    height: 120px;
+    width: 300px;
+    transition: width 0.5s;
+}
+
+.row21:hover {
+    background-color: tomato;
+    width: 200%;
+}
+
+.row22 {
+    background-color: darkgray;
+    height: 25px;
+    width: 300px;
+    transition: width 0.5s;
+}
+
+.row22:hover {
+    background-color: aqua;
+width: 800px;
+}
+
+.row23 {
+    background-color: cadetblue;
+    margin-bottom: 20px;
+    width: 300px;
+    transition: width 0.5s;
+}
+    .row23:hover {
+        background-color: aqua;
+    width: 800px;
+    }
+
+
+.row24 {
+    background-color: rgb(255, 166, 0);
+    height: 40px;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
+        --dot-bg: rgba(255, 255, 255,1);
+  --dot-color: rgb(175, 42, 189);
+  --dot-size: 4px;
+  --dot-space: 8px;
+
+  width: 300px;
+    transition: width 0.5s;
+}
+    .row24:hover {
+            background-color: rgb(70, 86, 86);
+        width: 100px;
+        }
+
+
+.row25 {
+background-color: bisque;
+height: 8px;
+width: 300px;
+transition: width 0.5s;
+}
+    .row25:hover {
+            background-color: rgb(37, 12, 113);
+        width: 407px;
+        }
+
+
+.row26 {
+    background-color: rgb(255, 16, 119);
+    height: 12px;
+    width: 300px;
+    transition: width 0.5s;
+}
+    .row26:hover {
+            background-color: rgb(144, 58, 58);
+        width: 550px;
+        }
+
+.row27 {
+    background-color: rgb(64, 120, 42);
+    height: 52px;
+    width: 300px;
+    transition: width 0.5s;
+}
+    .row27:hover{
+        width: 500px;
+    }
+
+.row28 {
+    background-color: coral;
+    height: 8px;
+    margin-bottom: 5px;
+    width: 300px;
+    transition: width 0.5s;
+}
+    .row28:hover {
+        width: 430px;
+    }
+
+.row29 {
+    height: 80px;
+    margin-bottom: 10px;
+    width: 300px;
+    transition: width 0.5s;
+}
+                .row29 p{
+                color: black;
+                }
+
+    .row29:hover {
+        background-color: #FFFF00;
+        width: 600px;
+    }
+
+
+.row291 {
+    background-color: #000080;
+    height: 10px;
+    margin-bottom: 5px;
+    width: 400px;
+    transition: width 0.5s;
+}
+    .row291:hover {
+        width: 480px;
+    }
+
+.row292 {
+    background-color:  rgb(72, 180, 212); 
+    width: 700px;
+    height: 200px;
+    margin-bottom: 5px;
+    transition: width 0.5s;
+}
+
+
+    .row292:hover {
+        background-color: magenta;
+        width: 900px;
+    }
+
+.row293 {
+    background-color: rgb(218, 21, 21);
+    height: 30px;
+    width: 600px;
+    transition: width 0.5s;
+    font-size: 8px;
+}
+    .row293:hover {
+        width: 1100px;
+    }
+
+
+.stars {  
+   width: 400px;
+   height: 35px; 
+   align-content: center;
+   margin-bottom: 10px;
+}
+
+#rowofstars {
+margin-left: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.stars img{
+   width:40px;
+   animation: rotateStars  5s linear infinite;
+}
+
+
+@keyframes rotateStars{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+</style>
+
+
+</head>
+
+
+<body>
+</div>
+
+
+    <div class="columnone">
+        <div class="stars">
+            <div id="rowofstars">
+<img src="./images/staronhomepage.png">
+<img src="./images/staronhomepage.png">
+<img src="./images/staronhomepage.png">
+<img src="./images/staronhomepage.png">
+<img src="./images/staronhomepage.png">
+<img src="./images/staronhomepage.png">
+<img src="./images/staronhomepage.png">
+<img src="./images/staronhomepage.png">
+<img src="./images/staronhomepage.png">
+<img src="./images/staronhomepage.png">
+</div>        
+
+</div>
+
+
+<a href="https://handbook.unimelb.edu.au/2023/subjects/gdes30008" target="_blank" onclick="openPopup(event)">
+    <div class="box row11">
+        <p>GDES30008_2025_SM1_STH_1</p>
+        <span class="bottom-right">1.1</span>
+    </div>
+</a>
+
+
+        <div class="box row12" id="box row12"> <span class="bottom-right">1.2</span> 
+            <audio id="honk" src="./sounds/honk.wav" preload="auto"></audio>
+        </div>
+
+        <div class="box row13" id="box row13"><span class="bottom-right">1.3</span></div>
+
+        <div class="dpgraphgif" id="dpgraphgif"> <img src="./images/cd.gif">
+            <img src="./images/cd.gif"><img src="./images/cd.gif">        
+        </div>
+
+        <div class="box row14"><span class="bottom-right">1.4</span></div>
+
+     
+
+        <div class="box row15" id="box row15"><span class="bottom-right">1.5</span>
+            <audio id="bubbles" src="./sounds/bubbles.wav" preload="auto"></audio>
+        </div>
+
+        <div class="box row15b"><img src="./images/free-nature-images.jpg"></div>
+
+        <div class="box row16" id="box row16"><span class="bottom-right">1.6</span></div>
+
+        <div class="plane" id="plane"> <img src="./images/plane.jpg"></div>
+
+        <div class="box row17" id="box row17"><p>TESSIEGRESLEY</p><span class="bottom-right">1.7</span></div>
+       
+      <div class="facewindow" id="facewindow">
+        <div class="face" id="face">
+            <div class="title-bar">
+                <span class="title">www.tessiegresley.com</span>
+                <span class="close-button">X</span>
+            </div>
+
+            <img src="./images/myface.png" alt="Image">
+        </div>
+
+      </div>
+       
+        
+
+        <div class="box row17b"></div>
+
+        <div class="box row18" id="box row18"> <p>WORKBOOK</p><span class="bottom-right">1.8</span> 
+        </div>
+
+        <div class="workbookpng" id="workbookpng"> <img src="./images/spiraxnotepad.png">
+        </div>
+
+
+        <div class="box row19" id="box row19"><span class="bottom-right">1.9</span></div>
+
+        <div class="spiral" id="spiral"> <img src="./images/rainboxrotation.gif"></div>
+
+        <div class="box row110" id="box row110"><span class="bottom-right">1.1.0</span>
+            <audio id="laugh" src="./sounds/laugh.wav" preload="auto"></audio>
+        </div>
+
+        <div class="box row111"><span class="bottom-right">1.1.1</span></div>
+
+    </div>
+
+    <div class="columntwo">
+
+        <a href="./wk1-3/index.html"><div class="box row21"> <p>1 2 3</p>
+                <span class="bottom-right">2.1</span> </div></a> 
+   
+
+
+   <div class="box row22"><p></p><span class="bottom-right">2.2</span></div>
+
+        <div class="box row23">_COMINGSOON_<span class="bottom-right">2.3</span></div>
+
+        <div class="box row24">_COMINGSOON_<span class="bottom-right">2.4</span></div>
+
+        <div class="box row25">_COMINGSOON_<span class="bottom-right">2.5</span></div>
+
+        <div class="box row26">_COMINGSOON_<span class="bottom-right">2.6</span></div>
+
+        <a href="./wk4-6/index.html"><div class="box row27"><p>4 5 6</p><span class="bottom-right">2.7</span></div></a>
+
+        <div class="box row28">_COMINGSOON_<span class="bottom-right">2.8</span></div>
+        
+       <div class="box row29"><p></p><span class="bottom-right">2.9</span></div>
+
+        <div class="box row291">_COMINGSOON_<span class="bottom-right">2.9.1</span></div>
+
+        <a href="./wk7-9/index.html"><div class="box row292"> <p>7 8 9</p><span class="bottom-right">2.9.2</span></div></a>
+    
+        <a href="./design ispiration/index.html"> <div class="box row293"><P>DESIGNINSPIRATION</P><span class="bottom-right">2.9.3</span></div></a>
+
+    </div>
+<script>
+    //DRAGGABLE ELEMENT POPUP - CODE TAKEN FROM https://dev.to/code_passion/creating-a-draggable-element-using-html-css-and-javascript-54g7
+
+
+    let draggableElement = document.getElementById('face');
+    let offsetX, offsetY;
+
+    draggableElement.addEventListener('mousedown', startDragging);
+    draggableElement.addEventListener('mouseup', stopDragging);
+
+    function startDragging(e) {
+        e.preventDefault();
+        offsetX = e.clientX - draggableElement.getBoundingClientRect().left;
+        offsetY = e.clientY - draggableElement.getBoundingClientRect().top;
+        draggableElement.classList.add('dragging');
+        document.addEventListener('mousemove', dragElement);
+    }
+
+    function dragElement(e) {
+        e.preventDefault();
+        let x = e.clientX - offsetX;
+        let y = e.clientY - offsetY;
+        draggableElement.style.left = x + 'px';
+        draggableElement.style.top = y + 'px';
+    }
+
+    function stopDragging() {
+        draggableElement.classList.remove('dragging');
+        document.removeEventListener('mousemove', dragElement);
+    }
+
+//
+const audioHonk = document.getElementById("honk");
+    const clickableHonk = document.querySelector(".row12");
+    
+    clickableHonk.addEventListener("click", function() {
+        audioHonk.play(); 
+    });
+    
+    const audioBubbles = document.getElementById("bubbles");
+    const clickableBubbles = document.querySelector(".row15");
+    
+    clickableBubbles.addEventListener("click", function() {
+        audioBubbles.play(); 
+    });
+    
+    const audioLaugh = document.getElementById("laugh");
+    const clickableLaugh = document.querySelector(".row110");
+    
+    clickableLaugh.addEventListener("click", function() {
+        audioLaugh.play(); 
+    });
+
+</script>
+    <script src="script.js"></script>
+
+</body>
+</html>

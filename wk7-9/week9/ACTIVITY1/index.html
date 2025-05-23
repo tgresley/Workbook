@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arduino + p5.js</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(228, 228, 228);
+      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .cornerlabels {
+      z-index: 20;
+      font-size: 120px;
+      color: rgb(23, 188, 39);
+      line-height: 1;
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    #topleft { position: absolute; top: 0; left: 0; padding: 10px; }
+    #topright { position: absolute; top: 0; right: 0; padding: 10px; }
+    #bottomleft { position: absolute; bottom: 0; left: 0; padding: 10px; }
+    #bottomright { position: absolute; bottom: 0; right: 0; padding: 10px; }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .pagetitle {
+      position: absolute;
+      top: 0;
+      left: 60%;
+      transform: translateX(-50%);
+      z-index: 20;
+      font-size: 120px;
+      color: rgb(0, 255, 26);
+      line-height: 1;
+      white-space: nowrap;
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 10px;
+      animation: fadeInOut 6s ease-in-out infinite;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      gap: 10px;
+      padding-top: 8vh;
+      transition: all 0.4s ease;
+    }
+
+    .videowrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: auto;
+      max-width: 40vw;
+    }
+
+    .videowrapper video {
+      height: 70vh;
+      object-fit: cover;
+      transition: all 0.4s ease;
+    }
+
+    .caption {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 16px;
+      color: rgb(50, 50, 50);
+      display: flex;
+      justify-content: center;
+    }
+
+    .caption p {
+      margin: 0;
+      padding: 20px;
+      font-family: Helvetica;
+      font-size: 20px;
+      line-height: 1.5;
+      color: rgb(23, 188, 39);
+      text-align: left;
+      word-wrap: break-word;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .caption b {
+      font-size: 24px;
+    }
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Corner Labels -->
+  <div class="cornerlabels">
+    <div id="topleft">A</div>
+    <div id="topright">C</div>
+    <div id="bottomleft">T</div>
+    <div id="bottomright">*1</div>
+  </div>
+
+  <!-- Page Title -->
+  <div class="pagetitle"><i>arduino+p5*js</i></div>
+
+  <!-- Content Section -->
+  <div class="content">
+    <div class="videowrapper">
+      <video id="video1" src="./potentiometer.mp4" autoplay muted playsinline loop></video>
+      <div class="caption">
+        <p><b>SERIAL_IN POTENTIOMETER COLOUR</b><br><br>
+        In workshop we learned how to combine p5 and Arduino code and processes through serial connection to make both technologies interact. In this case, the (dataIn) value was used to change the opacity/tonal quality of a p5 canvas based on the physical potentiometer on the Arduino circuit. <br><br>
+        Combining the different codes was much easier than expected. It was key to include the relevant p5 libraries and serial connections to ensure everything worked smoothly to create the final visual output.
+        </p>
+      </div>
+    </div>
+
+    <div class="videowrapper">
+      <video src="./potentiometercircle.mp4" autoplay muted playsinline loop></video>
+      <div class="caption">
+        <p><b>SERIAL_IN MAPPING CIRCLE THROUGH POTENTIOMETER</b><br><br>
+        This was my own experiment, altering the p5.js code to map an ellipse's diameter and position using (dataIn) values from a potentiometer.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

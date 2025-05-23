@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEEK_1</title>
+</head>
+
+<style>
+
+body {
+    background-color:#C0C0C0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+}
+
+/* Shooting Stars - RetrievedFromCanvasCodeSnippets */
+
+.shooting-stars {
+
+position: absolute;
+
+z-index: -10;
+
+}
+
+.stars1 {
+
+color: rgb(244, 244, 35);
+
+text-shadow: rgb(190, 190, 232);
+
+font-size: 1.4em;
+
+letter-spacing: -2px;
+
+text-shadow: 2px 2px 20px yellow;
+
+opacity: 0.9;
+
+}
+
+#star1 {
+
+position: absolute;
+
+top: 0px;
+right: 10vw;
+animation: 3.3s shootingStar linear infinite;
+
+}
+
+#star2 {
+position: absolute;
+top: 0px;
+right: 50vw;
+animation: 2.7s shootingStar linear infinite;
+}
+
+#star3 {
+position: absolute;
+top: -15vh;
+right: 60vw;
+animation: 4.2s shootingStar linear infinite;
+animation-delay: 1.2s;
+}
+
+#star4 {
+position: absolute;
+top: -30vh;
+right: 90vw;
+animation: 4.3s shootingStar linear infinite;
+animation-delay: 2s;
+}
+
+#star5 {
+position: absolute;
+top: -40vh;
+right: 30vw;
+animation: 3s shootingStar linear infinite;
+}
+
+#star6 {
+position: absolute;
+top: -3vh;
+right: -50vw;
+animation: 3s shootingStar linear infinite;
+animation-delay: 1.2s;
+}
+
+#star7 {
+position: absolute;
+top: -22px;
+right: -20vw;
+animation: 2s shootingStar linear infinite;
+animation-delay: 2.2s;
+}
+
+@keyframes stars-fall {
+0% {
+line-height: 5px;
+}
+100% {
+line-height: 10px;
+}
+}
+@keyframes shootingStar {
+0% {
+transform: rotateZ(-40deg) translateX(0%) translateY(0%);
+}
+100% {
+transform: rotateZ(-70deg) translateX(-150vw) translateY(50vh);
+}
+}
+
+        .icon-button {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          background: none;
+            border: none;
+            padding: 0px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+
+        .icon-button img {
+            background: none;
+            display: block;
+            height: 100px;
+            image-rendering: optimizeQuality;
+
+        }
+
+        .icon-button span {
+            display: block;
+            text-align: center;
+            margin-top: 0;
+            color: blue;
+            text-decoration: underline;
+            font-family: 'Times New Roman', Times, serif;
+        }
+ 
+        .menu {
+            display: none;
+            position: absolute;
+            flex-direction: column;
+          align-items: center;
+
+        }
+    
+            .menu img {
+                height: 90px;
+                margin-bottom: 5px;
+                display: block;
+            }
+
+        .menu span {
+            display: block;
+                    text-align: center;
+                    margin-top: 0;
+                    color: blue;
+                    text-decoration: underline;
+                    font-family: 'Times New Roman', Times, serif;
+                    font-size: 18px;
+        }
+ 
+        .menu #world {
+            position: absolute;
+            top: 200px;
+            left:300px;
+        }
+
+        .menu #computer {
+            position: absolute;
+            bottom: 60px;
+            left: 100px;
+          
+        }
+
+
+
+</style>
+
+
+
+<body>
+    
+    <div id="shooting-stars" class="hidden">
+        <div class="stars1" id="star1"><pre>*-.</pre></div>
+        <div class="stars1" id="star2"><pre>*-.</pre></div>
+        <div class="stars1" id="star3"><pre>*-.</pre></div>
+        <div class="stars1" id="star4"><pre>*-.</pre></div>
+        <div class="stars1" id="star5"><pre>*-.</pre></div>
+        <div class="stars1" id="star6"><pre>*-.</pre></div>
+        <div class="stars1" id="star7"><pre>*-.</pre></div>
+        </div>
+
+
+    
+    <div>
+        <button class="icon-button" id="iconButton">
+            <img src="./wk1/folderpng.png">
+          <span><em>HERE</em></span>
+        </button>
+    </div>
+
+
+        <div class="menu" id="menu">
+
+        <div class="menu1">
+            <a href="./wk1workshop/"><section id="world"> <img src="./wk1/worldpng.png"> <span>workshop</span></section></a>
+        </div>
+        
+        <div class="menu2">
+           <a href="./wk1coding/index.html"><section id="computer"> <img src="./wk1/computerpng.png" > <span>livecoding</span></section></a> 
+        </div>
+
+
+        </div>
+
+        <script>
+            const button = document.getElementById("iconButton");
+            const menu = document.getElementById("menu");
+    
+        
+            button.addEventListener("click", function () {
+                if (menu.style.display === "none" || menu.style.display === "") {
+                    menu.style.display = "block";
+                } else {
+                    menu.style.display = "none";
+                }
+            });
+    
+          
+            document.addEventListener("click", function (event) {
+                if (!menu.contains(event.target) && !button.contains(event.target)) {
+                    menu.style.display = "none";
+                }
+            });
+        </script>
+
+
+</body>
+
+</html>

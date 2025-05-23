@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Capacitive Touch Slideshow</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: rgb(188, 188, 188);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow: hidden;
+    }
+
+    .cornerlabels {
+      z-index: 20;
+      font-size: 120px;
+      color: rgb(255, 0, 200);
+      line-height: 1;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    #topleft { position: absolute; top: 0; left: 0; padding: 10px; }
+    #topright { position: absolute; top: 0; right: 0; padding: 10px; }
+    #bottomleft { position: absolute; bottom: 0; left: 0; padding: 10px; }
+    #bottomright { position: absolute; bottom: 0; right: 0; padding: 10px; }
+
+    .pagetitle {
+      padding: 10px;
+      position: absolute;
+      top: 0;
+      left: 60%;
+      transform: translateX(-50%);
+      z-index: 20;
+      font-size: 120px;
+      color: rgb(255, 0, 200);
+      line-height: 1;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .slideshow-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+
+    .content {
+      width: 90vh;
+      height: 90vh;
+      transform: rotate(90deg);
+      transform-origin: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .content > * {
+      display: none;
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    .content > .active {
+      display: block;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      font-weight: bold;
+      color: rgb(255, 0, 200);
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    #prev {
+      left: 5vw;
+    }
+
+    #next {
+      right: 5vw;
+    }
+
+    #audioButtonContainer {
+      position: absolute;
+      bottom: 5vh;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: none;
+    }
+
+    #playAudio {
+      font-size: 20px;
+      padding: 10px 20px;
+      background-color: rgb(255, 0, 200);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .titlebox {
+         width: 60vh;
+        height: 70vw;
+        background-color: rgb(191, 191, 191);
+            transform: rotate(-90deg);
+ 
+         
+     
+    }
+
+ h1 {
+        padding: 20px;
+        font-size: 120px;
+        width: 100vw;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+         color: rgb(255, 0, 200);
+        font-weight: 400;
+          position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  text-align: center;
+   
+    }
+  
+    
+ h2 {
+        padding: 20px;
+        font-size: 60px;
+        width: 100vw;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+         color: rgb(255, 0, 200);
+        font-weight: 400;
+          position: absolute;
+  bottom: 5%;
+  left: 20%;
+  width: 100vw;
+  text-align: left;
+   
+    }
+
+
+
+    .firstref {
+        width: 100vw;
+        height: 70vh;
+        background-color: rgb(255, 0, 166);
+            transform: rotate(-90deg);
+    }
+
+
+       .secondref {
+          width: 100vw;
+        height: 70vh;
+        background-color: rgb(195, 194, 194);
+            transform: rotate(-90deg); 
+    }
+
+
+p {
+
+  margin-top: 10vh;
+      z-index: 100;
+      color: rgb(0, 0, 0);
+      padding: 40px;
+      box-sizing: border-box;
+        font-family: Helvetica;
+          font-size: 20px;
+  line-height: 1.5;
+   text-align: left;
+  word-wrap: break-word;
+    }
+
+    b {
+        font-size: 24px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="cornerlabels">
+    <div id="topleft">A</div>
+    <div id="topright">C</div>
+    <div id="bottomleft">T</div>
+    <div id="bottomright">—1</div>
+
+    <h1><i>CAPACITIVE TOUCH</i></h1>
+    
+  </div>
+
+
+
+  <div class="slideshow-wrapper">
+    <button id="prev" class="nav-button">⟵</button>
+    <div class="content">
+    <div class="secondref"></div>
+     <img src="./capacitivetouch.jpg" alt="">
+      <video src="./video1.MP4" playsinline></video>
+       <div class="firstref">
+       <p><b>BUZZER CIRCUIT</b><br>
+        Electricity moves through moisture, and our skin can harness that. This project utilised this to create sound through touch. Rebekah and I got it done pretty quickly, and we were very happy with our vegetables and the instrument they created. This was a really potent example of interactivity, so simple. 
+        <br>The code did take a while to work when uploading to the board, but we learned about the serial monitor, and tracking the inputs to adjust hpw the board reacts to it. This was a good debug tip.  
+      <br></p>
+    
+    </div>
+      <img src="./image2.jpg" alt="">
+      <video src="./vid2.MP4" playsinline></video>
+       <div class="secondref">
+    
+     <p><b>MARY HAD A LITTLE LAMB</b><br>
+      After having fun with our first iteration of this, i was interested in the tonal possibilities of such machine, so i went and hcnaged the hertz value assigned to each pin and 'tuned' the instrument to play Mary had a Little Lamb. <br></p>
+    </div>
+    </div>
+
+    <button id="next" class="nav-button">⟶</button>
+
+    <div id="audioButtonContainer">
+      <button id="playAudio">▶ Play Audio</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.content > *');
+    const audioBtnContainer = document.getElementById('audioButtonContainer');
+    const playAudioBtn = document.getElementById('playAudio');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        if (slide.tagName === 'VIDEO') {
+          slide.pause();
+          slide.currentTime = 0;
+        }
+      });
+
+      const current = slides[index];
+
+      if (current.tagName === 'VIDEO') {
+        current.muted = true;
+        current.play();
+        audioBtnContainer.style.display = 'block';
+      } else {
+        audioBtnContainer.style.display = 'none';
+      }
+    }
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    });
+
+    playAudioBtn.addEventListener('click', () => {
+      const current = slides[currentIndex];
+      if (current.tagName === 'VIDEO') {
+        current.muted = false;
+        current.play();
+      }
+    });
+
+    showSlide(currentIndex);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .cornerlabels {
+      z-index: 20;
+      font-size: 120px;
+      color: rgb(255, 0, 200);
+      line-height: 1;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+    }
+
+    #topleft { position: absolute; top: 0; left: 0; padding: 10px; }
+    #topright { position: absolute; top: 0; right: 0; padding: 10px; }
+    #bottomleft { position: absolute; bottom: 0; left: 0; padding: 10px; }
+    #bottomright { position: absolute; bottom: 0; right: 0; padding: 10px; }
+
+    .pagetitle {
+      padding: 10px;
+      position: absolute;
+      top: 0;
+      left: 60%;
+      transform: translateX(-50%);
+      z-index: 20;
+      font-size: 120px;
+      color: rgb(255, 0, 200);
+      line-height: 1;
+      white-space: nowrap;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-top: 10vh;
+      z-index: 100;
+      color: rgb(255, 0, 200);
+      padding: 40px;
+      box-sizing: border-box;
+      font-family: Helvetica;
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: left;
+      word-wrap: none;
+      width: 30vw;
+      position: absolute;
+    }
+
+    b {
+      font-size: 24px;
+    }
+
+    img {
+      position: absolute;
+      left: 10vw;
+      width: 75vw;
+      height: auto;
+    }
+
+    .image {
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cornerlabels">
+    <div id="topleft">A</div>
+    <div id="topright">C</div>
+    <div id="bottomleft">T</div>
+    <div id="bottomright">—2</div>
+  </div>
+
+  <div class="pagetitle">
+    <i>Chindogu sketch</i>
+  </div>
+
+  <!-- Text ABOVE the image in z-index -->
+  <p><b>My Useless Object</b><br>
+    Whilst speculating about ways physical computing can interact with uis and the world around it through the subversion of sense, i came up with the useless object of an invert colour sensor.
+    <br> Whilst we see the version of colours around us, this object senses those values through a photoresitor/colour sensor, and inverts them in their colour code, displaying this completely different colour through and RGB LED. <br><br>
+    Whilst I might find this pretty useful, i like the stupidness of it, but also what it could reveal about how we view colour, leaving our senses of light values in the world more up to computing.
+  </p>
+
+  <div class="image">
+    <img src="./chindogu sketch.jpg" alt="">
+  </div>
+
+</body>
+</html>

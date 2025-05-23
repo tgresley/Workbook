@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LCD Emulator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .cornerlabels {
+      z-index: 20;
+      font-size: 120px;
+      color: #FF00FF;
+      line-height: 1;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    #topleft { position: absolute; top: 0; left: 0; padding: 10px; }
+    #topright { position: absolute; top: 0; right: 0; padding: 10px; }
+    #bottomleft { position: absolute; bottom: 0; left: 0; padding: 10px; }
+    #bottomright { position: absolute; bottom: 0; right: 0; padding: 10px; }
+
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .title-wrapper {
+      position: relative;
+      width: 90vw;
+    }
+
+    .title-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .titlebox {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #FF00FF;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .titlebox p {
+      color: white;
+      padding: 40px;
+      font-family: Helvetica;
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: left;
+      max-width: 80%;
+      word-wrap: break-word;
+      z-index: 2;
+      margin: 0;
+      width: 50vw;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+      gap: 30px;
+      padding: 100px 5vw 40px;
+      box-sizing: border-box;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .content video {
+      width: 100%;
+      max-width: 30vw;
+      height: auto;
+      object-fit: contain;
+      border: 4px solid #FF00FF;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+
+  
+    .titlebar {
+      padding: 10px;
+      position: fixed;
+      top: 7%;
+      left: 0;
+      z-index: 20;
+      font-size: 60px;
+      color: #FF00FF;
+      line-height: 5;
+      white-space: nowrap;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    b {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cornerlabels">
+    <div id="topleft">A</div>
+    <div id="topright">C</div>
+    <div id="bottomleft">T</div>
+    <div id="bottomright">*3</div>
+  </div>
+
+  <div class="title">
+    <div class="title-wrapper" id="titleWrapper">
+      <video src="./LCDEMULATOR.mp4" autoplay muted playsinline loop></video>
+      <div class="titlebox" id="titleBox">
+        <p><b>HOME EXPERIMENTS WITH DISPLAYS</b><br><br>
+
+          With the endless possibility of code and open-source knowledge, I spent quite a lot of time on Tinkercad finding cool LCD and digit segment projects. In these projects I was able to experiment with screen contrast through potentiometers, run stories with timed phrases, use buttons to create interactive games, and implement everyday functions such as counting/timing. These experiments deepened my appreciation of the digital world around us.
+          <br><br>
+          click on each video for circuit credit/projectlink
+
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+   
+     <a href="  https://www.tinkercad.com/things/7BmkuWBvwDM-lcd-talk-v-30">
+    <video src="./dial.MP4" autoplay muted playsinline loop></video>
+    </a>
+    <a href="  https://www.tinkercad.com/things/7BmkuWBvwDM-lcd-talk-v-30">
+    <video src="./narrative.MP4" autoplay muted playsinline loop></video>
+  </a>
+ <a href="https://www.tinkercad.com/things/laRYMjMBxHh-multi-choice-text-adventure-game">
+    <video src="./gamelcd.MP4" autoplay muted playsinline loop></video>
+</a>
+     <a href="https://projecthub.arduino.cc/crepeguy/jumpman-lcd-game-c9aea0">
+    <video src="./jumpgame.MP4" autoplay muted playsinline loop></video>
+</a>
+    <a href="https://projecthub.arduino.cc/crepeguy/jumpman-lcd-game-c9aea0">
+    <video src="./jump.MP4" autoplay muted playsinline loop></video>
+</a>
+     <a href="  https://www.tinkercad.com/things/0ixjtY9ycSH-copy-of-button-7seg-display">
+  <video src="./counter.MP4" autoplay muted playsinline loop></video>
+     </a>
+  
+  </div>
+
+  <script>
+    const wrapper = document.getElementById('titleWrapper');
+    const box = document.getElementById('titleBox');
+
+    wrapper.addEventListener('mouseenter', () => {
+      box.style.opacity = '1';
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      box.style.opacity = '0';
+    });
+  </script>
+
+</body>
+</html>

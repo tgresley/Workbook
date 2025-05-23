@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>_wk1-3_</title>
+
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .landing {
+      font-family: Helvetica, sans-serif;
+      text-decoration: none;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .wk1 h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 100px;
+      font-weight: 540;
+      line-height: 1;
+      position: absolute;
+      top: 315px;
+      left: 415px;
+      z-index: 5;
+     transform: scale(1.1,1.7);
+     color: rgb(80, 183, 241);
+     transition: filter 0.3s ease;
+
+    }
+
+    .wk1 h1:hover{
+filter: invert(100%);
+cursor: pointer;
+    }
+
+    .boxone {
+    position: absolute;
+      top: 300px;
+      left: 400px;
+      height: 125px;
+      background-color: rgb(118, 81, 63);
+      width: 362px;
+      z-index: 0;
+    }
+
+    .boxone:hover {
+      background-color: rgb(243, 36, 250);
+      z-index: 1;
+      cursor: pointer;
+    }
+
+
+
+    .wk2 h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 100px;
+      font-weight: 540;
+      line-height: 1;
+      position: absolute;
+      bottom: 87px;
+      right: 667px;
+      z-index: 5;
+     transform: scale(0.8,3);
+     color: rgb(80, 183, 241);
+     transition: filter 0.3s ease;
+    }
+
+    .wk2 h1:hover{
+filter:invert(100%);
+cursor: pointer;
+    }
+
+    .boxtwo {
+        background-color: rgb(139, 233, 157);
+        position: absolute;
+        bottom: 30px;
+        right: 700px;
+        height: 219px;
+        width: 230px;
+        z-index: 0;
+    }
+
+
+    .wk3 h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 50px;
+      font-weight: 540;
+      line-height: 1;
+      position: absolute;
+      top: 604px;
+      left: 231px;
+      z-index: 5;
+     transform: scale(2.7,1.5);
+     color: rgb(80, 183, 241);
+     transition: filter 0.3s ease;
+    }
+
+
+    .wk3 h1:hover{
+      filter: invert(100%);
+cursor: pointer;
+    }
+
+   
+
+    .boxthree {
+        background-color: rgb(229, 58, 76);
+        position: absolute;
+        top: 600px;
+        left: 100px;
+        height: 55px;
+        width: 411px;
+        z-index: 0;
+    }
+
+
+    .wk1:hover .boxone {
+  background-color: rgb(255, 162, 0);
+  cursor: pointer;
+}
+
+.wk2:hover .boxtwo {
+  background-color: rgb(250, 230, 36);
+  cursor: pointer;
+}
+
+.wk3:hover .boxthree {
+  background-color: rgb(248, 102, 221);
+  cursor: pointer;
+}
+
+
+
+  </style>
+</head>
+
+  <body>
+    <div class="landing">
+  
+      <a href="./week1/index.html" class="wk1">
+        <h1>WEEK1</h1>
+        <div class="boxone"></div>
+      </a>
+  
+      <a href="./week2/index.html" class="wk2">
+        <h1>week2</h1>
+        <div class="boxtwo"></div>
+      </a>
+  
+      <a href="./week3/index.html" class="wk3">
+        <h1>Week3</h1>
+        <div class="boxthree"></div>
+      </a>
+  
+    </div>
+  </body>
+
+</html>

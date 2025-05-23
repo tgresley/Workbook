@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week3Workshop</title>
+    <style>
+
+        @font-face {
+            font-family:MSsansserif;
+            src: url(../wk3/ms-sans-serif-1.ttf);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: MSsansserif;
+    
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            overflow: hidden;
+        }
+      .containerblock{
+
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+        height: 100vh;
+    
+           
+        
+      }
+
+      .border {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        width: 100%;
+        height: 100%;
+    
+      }
+
+    
+      .box{
+        display: flex;
+        position: relative;
+            justify-content: center;
+            align-items: center;
+            background-image: url(../wk3/cloudwallpaper.jpg);
+            background-size: cover;
+            background-color: rgb(194, 194, 194);
+    
+      }
+      
+
+      .box:hover{
+        background: linear-gradient(45deg, 
+        red, orange, yellow, green, blue, indigo, violet);
+        cursor: pointer;
+      }
+
+      .box p{
+        display: flex;
+        position: absolute;
+        text-align: right;
+        bottom: 0;
+        right: 0;
+      }
+
+      .box img{
+        height: 80px;
+        width: auto;
+      }
+
+     .hidden{
+        visibility: hidden;
+     }
+
+.gamewindows {
+    display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 20vh;
+            left: 16.66666vw;
+            width: 66.666vw;
+            height: 60vh;
+            background-color: #ffffff;
+            
+    
+        
+}
+
+.window {
+    display:flex;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+
+
+
+
+}
+
+.two {
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+   
+}
+
+#second {
+    display: block;
+    position: absolute;
+    top: 3vh;
+    left: 3vw;
+line-height: 2;
+}
+
+#second p{
+    line-height: 2;
+    font-size: 20px;
+    width: 50vw;
+
+}
+
+.emojipage2 {
+
+    font-weight: 1000;
+    position: absolute;
+    bottom: 3vh;
+    right: 3vw;
+}
+
+.emojipage2 img{
+position: absolute;
+    height: 40px;
+}
+
+
+
+.three {
+    background-color: white;
+    width: 100%;
+ display: none;
+ align-items: center;
+ justify-content: center;
+
+}
+
+.three img{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    height: 55vh;
+    width: auto;
+z-index: 160;
+}
+
+#third {
+    display: block;
+    position: absolute;
+    line-height: 2;
+    width: 30vw;
+    line-height: 2;
+    top:10vh;
+   left: 20vw;  
+}
+
+.emojipage3 {
+font-weight: 1000;
+position: absolute;
+top: 3vh;
+right: 3vw;
+}
+
+.emojipage3 img{
+position: absolute;
+height: 40px;
+}
+
+
+
+
+.four{
+    background-color: white;
+    width: 100%;
+    display: none;
+}
+
+#fourth {
+    display: block;
+    position: absolute;
+    line-height: 2;
+    width: 30vw;
+    line-height: 2;
+    top:10vh;
+   left: 20vw;  
+}
+
+.emojipage4 {
+display: block;
+font-weight: 1000;
+position: absolute;
+bottom: 3vh;
+left: 3vw;
+}
+
+.emojipage4 img{
+height: 40px;
+}
+
+
+
+
+.five {
+    background-color: white;
+    width: 100%;
+    display: none;
+
+}
+
+.five img{
+height: 40vh;
+position: absolute;
+right: 11vw;
+bottom: 0;
+}
+
+.emojipage5 {
+display: block;
+font-weight: 1000;
+position: absolute;
+bottom: 3vh;
+left: 3vw;
+}
+
+.emojipage5 img{
+height: 40px;
+position: absolute;
+left: 6vw;
+
+}
+
+#fifth{
+    position: absolute;
+    top:10px;
+   left: 20vw;  
+    width: 40vw;
+    line-height: 2;
+}
+
+
+.six{
+    background-color: white;
+    width: 100%;
+    display: none;
+}
+
+#sixth img{
+    z-index: 400;
+     width: auto;
+    height: 59vh;
+}
+
+.emojipage6 {
+display: block;
+font-weight: 1000;
+position: absolute;
+bottom: 3vh;
+right: 3vw;
+}
+
+.emojipage6 img{
+height: 40px;
+position: absolute;
+}
+
+
+.seven{
+    background-color: white;
+    width: 100%;
+    line-height: 2;
+    display: none;
+
+}
+
+.seven p{
+    width: 70%;
+}
+
+
+.emojipage7 img{
+    height: 50px;
+}
+
+.eight{
+    background-color: white;
+    width: 100%;
+    display: none;
+}
+
+
+#eighth{
+line-height: 2;
+width: 25vh;
+
+}
+
+.emojipage8 {
+display: block;
+font-weight: 1000;
+
+
+}
+
+.emojipage8 img{
+height: 40px;
+}
+
+
+
+ .openingwindow{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 20vh;
+            left: 16.66666vw;
+            width: 66.666vw;
+            height: 60vh;
+            background-color: #C0C0C0;
+            z-index: 500;
+            box-shadow: -2px -2px #e0dede, -2px 0 #e0dede, 0 -2px #e0dede, -4px -4px white, -4px 0 white, 0 -4px white, 2px 2px #818181, 0 2px #818181, 2px 0 #818181,  2px -2px #e0dede, -2px 2px #818181, -4px 2px white, -4px 4px black, 4px 4px black, 4px 0 black, 0 4px black, 2px -4px white, 4px -4px black
+ }
+
+.openingwindow h1{
+display: flex;
+align-items: center;
+text-align: left;
+font-size: 24px;
+color: white;
+position: absolute;
+top: 0px;
+width: 100%;
+height: 50px;
+border-bottom: 2px solid black;
+background: linear-gradient(90deg, #000b7c, #377cc6);
+    color: white;
+    padding: 1rem;
+}
+
+
+.boxcontent{
+    position: absolute;
+    top: 9vh;
+    left: 22vw;
+    right: 4vw;
+    line-height: 2;
+}
+
+.openingwindow h2{
+
+font-size: 22px;
+text-align: left;
+font-weight: 600;
+color: rgb(0, 0, 0);
+}
+
+.boxcontent img{
+    height: 70px;
+position: absolute;
+left: 2vw;
+}
+
+
+.closebutton {
+    display: flex;
+    align-items: center;
+   justify-content: center;
+    font-size: 24px;
+    font-weight: 1000;
+    color: black;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #C0C0C0;
+    height: 35px;
+    width: 35px;
+    box-shadow: -2px -2px #e0dede, -2px 0 #e0dede, 0 -2px #e0dede, -4px -4px white, -4px 0 white, 0 -4px white, 2px 2px #818181, 0 2px #818181, 2px 0 #818181,  2px -2px #e0dede, -2px 2px #818181, -4px 2px white, -4px 4px black, 4px 4px black, 4px 0 black, 0 4px black, 2px -4px white, 4px -4px black
+}
+
+
+.windowimage img{
+    width: 15vw;
+    position: absolute;
+    top: 8vh;
+    left: 4vw;
+    border: 3px solid black;
+    border-style: groove;
+}
+
+
+
+.boxcontent span{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 3;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    
+
+
+
+<div class="containerblock">
+    <div class="border">
+    <div  class="box" id="row11"></h1><img src="https://www.en.kolobok.us/smiles/standart/yahoo.gif"></div>
+    <div  class="box" id="row12"><img src="https://www.en.kolobok.us/smiles/standart/cray.gif"></div>
+    <div  class="box" id="row13"><img src="https://www.en.kolobok.us/smiles/standart/bad.gif"></div>
+    <div  class="box" id="row14"><img src="https://www.en.kolobok.us/smiles/standart/air_kiss.gif"></div>
+    <div  class="box" id="row15"><img src="https://www.en.kolobok.us/smiles/standart/grin.gif"></div>
+    <div  class="box" id="row16"><img src="https://www.en.kolobok.us/smiles/standart/ireful1.gif"></div>
+
+    <div  class="box" id="row21"> <img src="https://www.en.kolobok.us/smiles/standart/black_eye.gif"></div>
+    <div  class="box hidden" id="row22"></div>
+    <div  class="box hidden" id="row23"></div>
+    <div  class="box hidden" id="row24"></div>
+    <div  class="box hidden" id="row25"></div>
+    <div  class="box" id="row26"><img src="https://www.en.kolobok.us/smiles/standart/blush.gif"></div>
+
+    <div  class="box" id="row31"><img src="https://www.en.kolobok.us/smiles/standart/ok.gif"></div>
+    <div  class="box hidden" id="row32"><p>3.2</p></div>
+    <div  class="box hidden" id="row33"><p>3.3</p></div>
+    <div  class="box hidden" id="row34"><p>3.4</p></div>
+    <div  class="box hidden" id="row35"><p>3.5</p></div>
+    <div  class="box " id="row36"><img src="https://www.en.kolobok.us/smiles/standart/smoke.gif"></div>
+
+    <div  class="box" id="row41"><img src="https://www.en.kolobok.us/smiles/standart/read.gif"></div>
+    <div  class="box hidden" id="row42"><p>3.2</p></div>
+    <div  class="box hidden" id="row43"><p>3.3</p></div>
+    <div  class="box hidden" id="row44"><p>3.4</p></div>
+    <div  class="box hidden" id="row45"><p>3.5</p></div>
+    <div  class="box " id="row46"><img src="https://www.en.kolobok.us/smiles/standart/search.gif"></div>
+
+    <div  class="box" id="row51"><img src="https://www.en.kolobok.us/smiles/standart/superstition.gif"></div>
+    <div  class="box" id="row52"><img src="https://www.en.kolobok.us/smiles/standart/thank_you.gif"></div>
+    <div  class="box" id="row53"><img src="https://www.en.kolobok.us/smiles/standart/acute.gif"></div>
+    <div  class="box" id="row54"><img src="https://www.en.kolobok.us/smiles/standart/facepalm.gif">></div>
+    <div  class="box" id="row55"><img src="https://www.en.kolobok.us/smiles/he_and_she/curtsey.gif"></div>
+    <div  class="box" id="row56"><img src="https://www.en.kolobok.us/smiles/rpg/wizard.gif"></div>
+    </div>
+
+    <div class="openingwindow" id="openingwindow">
+        <h1>Week 3</h1>
+            <div class="closebutton">X</div>
+            <div class="windowimage"><img src="../wk3/oldwindowsimg.jpg"></div>
+            <div class="boxcontent">
+                <h2>Fluid Design and Workbook Submission 2A!</h2>
+                <p>Am I Ugly Enough Yet?</p>
+                <p>This Week less was done in-class for workshop. We disucssed how our website may fluidly move between devices.</p>
+                <p>Find each emoji in this window and click on them outside to see more...  </p>
+               
+               <span>
+                FIND THIS GUY FIRST
+               </span>
+               <br>
+               <img src="https://www.en.kolobok.us/smiles/standart/yahoo.gif">
+            </div>
+    </div>
+    
+    
+    <div class="gamewindows">
+
+        <div class="window two" id="two">
+            <span class="emojipage2"> <p>find and click this fella <img src="https://www.en.kolobok.us/smiles/standart/smoke.gif" ></p></span>
+            <div id="second">
+                <h2>Initial Thoughts</h2>
+    
+                <p> In developing My workbook so far, i had not once thought about its interactivity/responsiveness on a phone or a tablet, and definitely hadnt thought about in the grid</p>
+                <p><b>Oh shit!</b></p>
+                <p>Already deep into the many horiztonal columns on my first page, i am struggling to think of a solution for my website's fluidity on such a vertical display....what do i do?....</p>
+            </div>
+        </div>
+    
+    <div class="window three" id="three">
+        <span class="emojipage3"> <p>this guy now <img src="https://www.en.kolobok.us/smiles/standart/bad.gif"></p></span>
+        <div id="third">
+            <div>
+                <h2>Device Responsiveness</h2>
+                <p>...This is my best solution so far. I will have to manually change the widths of each box, and the direction of some text to allow for the landing page to function. <br>
+                we were shown how to put responsive design into our html &lt;head> in the &lt;meta name="viewport" content="width=device-width, initial-scale= 1.0" and in as CSS as @media. <br> So, moving forward, i will keep this in mind and try to integrate responsiveness into my design <br>
+                For all the animations, popups and other nine pages, i have my work cut out to figure out a general device fluidity. </p>
+            </div>     
+        </div>
+        <div><img src="../wk3/responsivedesignscketch.jpg"></div>
+     </div>
+    
+    
+     <div class="window four" id="four"> 
+        <span class="emojipage4"> <p> find this cutie  <img src="https://www.en.kolobok.us/smiles/he_and_she/curtsey.gif"></p></span>
+        <div id="fourth">
+                <h2>CustomFonts</h2>
+            <p>We also learnt how to set custom fonts in our html pages with any ttf file</p>
+            <p>on this page, for example, i was able to download and set the original Microsoft Sans Serif from Windows 97</p>
+            <p>i did this by setting a new font family in CSS and attaching the ttf as a file - heres the code:</p>
+            <p><pre>
+            @font-face {
+            font-family:MSsansserif;
+            src: url(../wk3/ms-sans-serif-1.ttf);
+            }
+            </pre></p>
+        </div>
+     </div>
+    
+
+
+
+    
+    <div class="window five" id="five">
+        <img src="../wk3/home page progress.png">
+
+
+        <span class="emojipage5"> <p> dont look now <img src="https://www.en.kolobok.us/smiles/standart/read.gif"></p></span>
+    
+        <div id="fifth">
+            <h1>Homepage at start of week</h1>
+            <p>before class, i had set up my basic columns and rows of content. It was tedious. Thorugh doing more research and beginning to use Javascript, i began to add more animation and design of popups and sound on clicks</p>
+            <p>I also added some gifs from <a href="http://dpgraph.com/math-art.html"> dpgraph</a></p>
+        </div> 
+    </div>
+    
+        
+    
+    <div class="window six" id="six">
+        <span class="emojipage6"> <p> not many more now <img src="https://www.en.kolobok.us/smiles/standart/grin.gif"></p></span>
+        <div id="sixth">
+            <img src="../wk3/finalresulthome.png">
+        </div>
+    </div>
+    
+    <div class="window seven" id="seven">
+        <span class="emojipage7"> <p> one more page <img src="https://www.en.kolobok.us/smiles/standart/facepalm.gif"></p></span>
+        <div id="seventh">
+            <h1>Final Thoughts</h1>
+            <p> After many hours of coding, i have learnt many new skills and the basics of 3 new languages.
+                And...At the end of this week, I have a website to behold!
+                I am still really struggling to figure out toggling and also just alignment and image placement generally (clearly). I will work on that in the next weeks!
+
+            </p>
+        </div>
+    </div>
+    
+    <div class="window eight" id="eight">
+        <span class="emojipage8"> <p> go to start <img src="https://www.en.kolobok.us/smiles/standart/black_eye.gif"></p></span>
+        <div id="eighth">
+            <h1>References</h1>
+            <p> Windows 98 CSS styling done with help from:
+                <a href="https://fjolt.com/article/css-windows-98">https://fjolt.com/article/css-windows-98</a> and <a href="https://www.npmjs.com/package/98.css">https://www.npmjs.com/package/98.css</a>
+
+            </p>
+
+            <p> Windows 98 dowloadable icon database (used for weekly landing pages) <a href="https://win98icons.alexmeub.com/">Alex Meub</a></p>
+
+            <p> Smilies/emoticons - downloaded from <a href="https://www.en.kolobok.us/content_plugins/gallery/gallery.php?smiles.3">Kolobok</a></p>
+
+            <p>Font Used - MicrosoftSansSerif97 downloaded from: <a href="https://fontstruct.com/fontstructions/download/2096359">https://fontstruct.com/fontstructions/download/2096359</a></p>
+        </div>
+    </div>
+     
+        </div>
+
+
+</div>
+
+<script>
+
+
+
+    document.getElementById("row11").addEventListener("click", function() {
+        document.querySelector(".openingwindow").style.display = "none"; // Hide the opening window
+        document.getElementById("two").style.display = "flex"; // Show the second window
+    });
+
+    document.getElementById("row36").addEventListener("click", function() {
+        document.querySelector(".two").style.display = "none"; // Hide the opening window
+        document.getElementById("three").style.display = "flex"; // Show the second window
+    });
+
+    document.getElementById("row13").addEventListener("click", function() {
+        document.querySelector(".three").style.display = "none"; // Hide the opening window
+        document.getElementById("four").style.display = "flex"; // Show the second window
+    });
+
+    document.getElementById("row55").addEventListener("click", function() {
+        document.querySelector(".four").style.display = "none"; // Hide the opening window
+        document.getElementById("five").style.display = "flex"; // Show the second window
+    });
+
+    document.getElementById("row41").addEventListener("click", function() {
+        document.querySelector(".five").style.display = "none"; // Hide the opening window
+        document.getElementById("six").style.display = "flex"; // Show the second window
+    });
+
+    document.getElementById("row15").addEventListener("click", function() {
+        document.querySelector(".six").style.display = "none"; // Hide the opening window
+        document.getElementById("seven").style.display = "flex"; // Show the second window
+    });
+
+    document.getElementById("row15").addEventListener("click", function() {
+        document.querySelector(".six").style.display = "none"; // Hide the opening window
+        document.getElementById("seven").style.display = "flex"; // Show the second window
+    });
+
+    document.getElementById("row54").addEventListener("click", function() {
+        document.querySelector(".seven").style.display = "none"; // Hide the opening window
+        document.getElementById("eight").style.display = "flex"; // Show the second window
+    });
+
+    
+    document.getElementById("row21").addEventListener("click", function() {
+        document.querySelector(".eight").style.display = "none"; // Hide the opening window
+        document.getElementById("openingwindow").style.display = "flex"; // Show the second window
+    });
+  
+
+
+
+</script>
+
+
+</body>
+</html>
