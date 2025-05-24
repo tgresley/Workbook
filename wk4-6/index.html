@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Week 4–6 Portal</title>
 
-  <!-- p5.js at the top -->
+  <!-- p5.js -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
 
   <style>
@@ -35,6 +35,12 @@
       cursor: pointer;
     }
 
+    .label a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
     .label.week4 { top: 80px; left: 100px; }
     .label.week5 { top: 400px; right: 150px; }
     .label.week6 { bottom: 120px; left: 180px; }
@@ -42,9 +48,9 @@
 </head>
 <body>
   <!-- Week Buttons -->
-  <div class="label week4">WEEK 4</div>
-  <div class="label week5">WEEK 5</div>
-  <div class="label week6">WEEK 6</div>
+  <div class="label week4"><a href="./week4/index.html">WEEK 4</a></div>
+  <div class="label week5"><a href="./week5/index.html">WEEK 5</a></div>
+  <div class="label week6"><a href="./week6/index.html">WEEK 6</a></div>
 
   <!-- p5 Sketch -->
   <script>
