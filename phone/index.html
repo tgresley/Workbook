@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>phoneresponsivityreflection</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      color: rgb(255, 255, 255);
+      font-size: 30px;
+      width: 50%;
+      padding: 30px;
+      box-sizing: border-box;
+      line-height: 1.4;
+      font-family: Helvetica;
+      background-color: rgb(0, 0, 0);
+    
+      display: none; /* Hide initially */
+    }
+
+    .image img {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .show-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 15;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-family: Helvetica;
+      background: white;
+      color: black;
+      border: 2px solid black;
+      cursor: pointer;
+    }
+
+    .show-btn:hover {
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Button to show the text box -->
+  <button class="show-btn" onclick="document.querySelector('.text').style.display='block'; this.style.display='none';">
+Reflection
+  </button>
+
+  <!-- Hidden text box -->
+  <div class="text">
+    <p>
+     Having over 30 separate index.html files throughout my unfolding website, many of which used absolute pixel positioning and complex image/text placement, the undertaking of making it phone responsive would be far too large under the time scopes of this submission. Even in my experiments, it became clear that in every single index.html page of the site, I would have to rewrite all CSS under a phone-size media query. 
+     <br><br>   
+     In some pages, this might be quite quick (landing pages, simple button systems, one image pages) and are already quite adaptive to the phone, but for most I would have to rewrite/add over 300 lines of code to make it work. This is not possible for me to complete. 
+     <br><br>  
+     Upon reflection, I could have definitely approached image/text placement more decisively with more adaptive logic and will keep this in mind for future projects. Looking at the phone screenshots of my Workbook, it is disappointing that my design successes are not able to be reflected in that media. 
+    </p>
+  </div>
+
+  <!-- Background image -->
+  <div class="image">
+    <img src="./phonescreenshots.png" alt="">
+  </div>
+
+</body>
+</html>
