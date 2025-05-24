@@ -2,32 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Fullscreen Pinterest Board</title>
+  <title>Design Inspo</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       width: 100%;
-      overflow: auto;
       background: #fff;
+      overflow: hidden;
     }
 
     .pinterest-wrapper {
+      height: 100vh;
+      width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100%;
+    }
+
+    a[data-pin-do="embedBoard"] {
+      display: block;
       width: 100%;
     }
+
+       .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      color: blue;
+      font-size: 40px;
+      width: 100%;
+      max-width: 1400px;
+      padding: 20px;
+      box-sizing: border-box;
+
+      line-height: 1.4;
+      font-family: sans-serif;
+      text-shadow: 0 0 10px rgba(0, 0, 255, 0.8),
+                   0 0 20px rgba(0, 0, 255, 0.6),
+                   0 0 30px rgba(0, 0, 255, 0.4);
+    
+    }
+
+
+    .text:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+
+}
+ 
   </style>
 </head>
 <body>
+
+  <div class="text">
+    <p>
+      For my site design, I took a lot of inspiration from static and web design precedent (as collated on this Pinterest board of mine). I tried to emulate some almost exactly for practice in creating certain visual modes in my own coding – but due to Pinterest's nature, it can be hard to find the credit.
+      <br><br>
+      If I could start again, I would be more wary of crediting where my visual output/organisation was inspired or taken from. I would also never do such 1:1 copies outside an educational context.
+      <br><br>
+      This board has many different examples of visual precedent – anti-design, brutalism, minimalism, web-aesthetic, old-internet aesthetic and creative data visualisation. I hope these influences are visible in the design I undertook throughout this workbook.
+    </p>
+  </div>
+
   <div class="pinterest-wrapper">
     <a data-pin-do="embedBoard"
        data-pin-board-width="1800"
-       data-pin-scale-height="400"
-       data-pin-scale-width="100"
+       data-pin-scale-height="1000"
+       data-pin-scale-width="190"
        href="https://www.pinterest.com/yeehawbaeby/interactive-media/">
     </a>
   </div>
